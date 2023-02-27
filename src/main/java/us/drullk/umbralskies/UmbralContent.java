@@ -3,6 +3,7 @@ package us.drullk.umbralskies;
 import com.gildedgames.aether.AetherTags;
 import com.gildedgames.aether.block.AetherBlocks;
 import com.gildedgames.aether.world.placementmodifier.DungeonBlacklistFilter;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -12,10 +13,12 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
+import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraftforge.common.world.BiomeModifier;
@@ -83,8 +86,23 @@ public class UmbralContent {
     }
 
     static void generatePlacedFeatures(BootstapContext<PlacedFeature> context) {
-        context.register(AETHER_DRUID_HUT, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(AETHER_HUT_PALETTE), List.of(RarityFilter.onAverageOnceEvery(32), new DungeonBlacklistFilter())));
-        context.register(PLACEABLE_AETHER_WELL, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(RANDOMIZED_AETHER_WELL), List.of(RarityFilter.onAverageOnceEvery(32), new DungeonBlacklistFilter())));
+        depthChecked(context, 15, 15, AETHER_DRUID_HUT, AETHER_HUT_PALETTE);
+        depthChecked(context, 5, 15, PLACEABLE_AETHER_WELL, RANDOMIZED_AETHER_WELL);
+    }
+
+    private static void depthChecked(BootstapContext<PlacedFeature> context, int dist, int depth, ResourceKey<PlacedFeature> aetherDruidHut, ResourceKey<ConfiguredFeature<?, ?>> aetherHutPalette) {
+        int halfDist = dist >> 1;
+        BlockPredicateFilter northTop = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new BlockPos(0, -1, halfDist), UmbralTags.AETHER_WORLDGEN));
+        BlockPredicateFilter southTop = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new BlockPos(dist, -1, halfDist), UmbralTags.AETHER_WORLDGEN));
+        BlockPredicateFilter westTop = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new BlockPos(halfDist, -1, 0), UmbralTags.AETHER_WORLDGEN));
+        BlockPredicateFilter eastTop = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new BlockPos(halfDist, -1, dist), UmbralTags.AETHER_WORLDGEN));
+
+        BlockPredicateFilter undergroundSolidCheck1 = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new BlockPos(0, -depth, 0), UmbralTags.AETHER_WORLDGEN));
+        BlockPredicateFilter undergroundSolidCheck2 = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new BlockPos(dist, -depth, 0), UmbralTags.AETHER_WORLDGEN));
+        BlockPredicateFilter undergroundSolidCheck3 = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new BlockPos(0, -depth, dist), UmbralTags.AETHER_WORLDGEN));
+        BlockPredicateFilter undergroundSolidCheck4 = BlockPredicateFilter.forPredicate(BlockPredicate.matchesTag(new BlockPos(dist, -depth, dist), UmbralTags.AETHER_WORLDGEN));
+
+        context.register(aetherDruidHut, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(aetherHutPalette), List.of(RarityFilter.onAverageOnceEvery(1), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, new DungeonBlacklistFilter(), northTop, southTop, westTop, eastTop, undergroundSolidCheck1, undergroundSolidCheck2, undergroundSolidCheck3, undergroundSolidCheck4)));
     }
 
     static void generateBiomeModifiers(BootstapContext<BiomeModifier> context) {

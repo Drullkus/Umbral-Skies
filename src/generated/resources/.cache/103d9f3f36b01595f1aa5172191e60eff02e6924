@@ -1,4 +1,4 @@
-// 1.19.3	2023-02-26T19:02:58.095239	Registries
+// 1.19.3	2023-02-26T23:00:28.557088	Registries
 dc30deb0308d04c7074580797bd33214b5aeb47d data/umbral_skies/forge/biome_modifier/aether_modifier.json
 a6ea005b69078dbe1d4f2cdc9fb22e51df9220fc data/umbral_skies/twilight/wood_palettes/holystone.json
 3ab6fe39cfd30b5c8a72fa74333d8fa3373ce862 data/umbral_skies/twilight/wood_palettes/skyroot.json
@@ -6,5 +6,5 @@ a6ea005b69078dbe1d4f2cdc9fb22e51df9220fc data/umbral_skies/twilight/wood_palette
 fadbd729899dec40d05018f8fccc3f2791b4cf49 data/umbral_skies/worldgen/configured_feature/aether_palette_hut.json
 a18ddc1f62db8465f5f7cfb20534452e019c69f8 data/umbral_skies/worldgen/configured_feature/aether_palette_simple_well.json
 37249399088d6ff17815eaf9bfb29fb65e517cdb data/umbral_skies/worldgen/configured_feature/randomized_aether_well.json
-a82d68fd4d91c44def60722133272a1898ec077d data/umbral_skies/worldgen/placed_feature/aether_druid_hut.json
-c0448cc605a8e4e08c2b4f9938af75687d365249 data/umbral_skies/worldgen/placed_feature/aether_well.json
+f5fd6497b98994523bc3bc49d834fb3c884544a4 data/umbral_skies/worldgen/placed_feature/aether_druid_hut.json
+2654aaf0f160af4ae41e8da5c11a89c0113f6ca6 data/umbral_skies/worldgen/placed_feature/aether_well.json

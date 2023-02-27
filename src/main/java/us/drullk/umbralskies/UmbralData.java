@@ -38,7 +38,8 @@ public class UmbralData {
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
+        generator.addProvider(isServer, new UmbralTags.UmbralBlockTags(output, provider, event.getExistingFileHelper()));
         generator.addProvider(isServer, new DatapackBuiltinEntriesProvider(output, provider, DATA_BUILDER, Collections.singleton(UmbralSkies.MODID)));
-        generator.addProvider(isServer, new UmbralTags.UmbralPlacedFeatureTag(output, provider.thenApply(p -> DATA_BUILDER.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), p)), event.getExistingFileHelper()));
+        generator.addProvider(isServer, new UmbralTags.UmbralPlacedFeatureTags(output, provider.thenApply(p -> DATA_BUILDER.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), p)), event.getExistingFileHelper()));
     }
 }
