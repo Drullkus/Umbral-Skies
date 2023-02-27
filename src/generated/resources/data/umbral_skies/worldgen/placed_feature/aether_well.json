@@ -1,0 +1,9 @@
+{
+  "feature": "umbral_skies:randomized_aether_well",
+  "placement": [
+    {
+      "type": "minecraft:rarity_filter",
+      "chance": 32
+    }
+  ]
+}

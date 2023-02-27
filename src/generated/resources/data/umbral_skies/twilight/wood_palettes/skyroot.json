@@ -1,0 +1,10 @@
+{
+  "banister": "twilightforest:canopy_banister",
+  "button": "aether:skyroot_button",
+  "fence": "aether:skyroot_fence",
+  "gate": "aether:skyroot_fence_gate",
+  "planks": "aether:skyroot_planks",
+  "plate": "aether:skyroot_pressure_plate",
+  "slab": "aether:skyroot_slab",
+  "stairs": "aether:skyroot_stairs"
+}

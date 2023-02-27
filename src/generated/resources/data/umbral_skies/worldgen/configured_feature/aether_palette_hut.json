@@ -1,0 +1,20 @@
+{
+  "type": "twilightforest:druid_hut",
+  "config": {
+    "palette_choices": [
+      {
+        "data": "umbral_skies:skyroot",
+        "weight": 20
+      },
+      {
+        "data": "umbral_skies:holystone",
+        "weight": 9
+      },
+      {
+        "data": "#twilightforest:treasure",
+        "weight": 1
+      }
+    ],
+    "target_palettes": "#twilightforest:druid_hut_swizzle_mask"
+  }
+}

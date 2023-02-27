@@ -1,0 +1,20 @@
+{
+  "type": "twilightforest:fancy_well",
+  "config": {
+    "palette_choices": [
+      {
+        "data": "umbral_skies:skyroot",
+        "weight": 20
+      },
+      {
+        "data": "umbral_skies:holystone",
+        "weight": 9
+      },
+      {
+        "data": "#twilightforest:treasure",
+        "weight": 1
+      }
+    ],
+    "target_palettes": "#twilightforest:well_swizzle_mask"
+  }
+}
