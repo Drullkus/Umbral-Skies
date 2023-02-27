@@ -4,6 +4,9 @@
     {
       "type": "minecraft:rarity_filter",
       "chance": 32
+    },
+    {
+      "type": "aether:dungeon_blacklist_filter"
     }
   ]
 }

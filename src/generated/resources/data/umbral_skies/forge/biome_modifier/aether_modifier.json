@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
   "biomes": "#aether:is_aether",
-  "features": "#umbral_skies:aether_features",
+  "features": "#umbral_skies:twilight_to_aether_features",
   "step": "surface_structures"
 }

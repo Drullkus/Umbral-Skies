@@ -2,6 +2,7 @@ package us.drullk.umbralskies;
 
 import com.gildedgames.aether.AetherTags;
 import com.gildedgames.aether.block.AetherBlocks;
+import com.gildedgames.aether.world.placementmodifier.DungeonBlacklistFilter;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
@@ -28,7 +29,7 @@ import twilightforest.world.components.feature.config.SwizzleConfig;
 
 import java.util.List;
 
-public class UmbralKeys {
+public class UmbralContent {
     public static final ResourceKey<WoodPalette> SKYROOT_PALETTE = ResourceKey.create(WoodPalettes.WOOD_PALETTE_TYPE_KEY, UmbralSkies.prefix("skyroot"));
     public static final ResourceKey<WoodPalette> HOLYSTONE_PALETTE = ResourceKey.create(WoodPalettes.WOOD_PALETTE_TYPE_KEY, UmbralSkies.prefix("holystone"));
 
@@ -82,8 +83,8 @@ public class UmbralKeys {
     }
 
     static void generatePlacedFeatures(BootstapContext<PlacedFeature> context) {
-        context.register(AETHER_DRUID_HUT, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(AETHER_HUT_PALETTE), List.of(RarityFilter.onAverageOnceEvery(32))));
-        context.register(PLACEABLE_AETHER_WELL, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(RANDOMIZED_AETHER_WELL), List.of(RarityFilter.onAverageOnceEvery(32))));
+        context.register(AETHER_DRUID_HUT, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(AETHER_HUT_PALETTE), List.of(RarityFilter.onAverageOnceEvery(32), new DungeonBlacklistFilter())));
+        context.register(PLACEABLE_AETHER_WELL, new PlacedFeature(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(RANDOMIZED_AETHER_WELL), List.of(RarityFilter.onAverageOnceEvery(32), new DungeonBlacklistFilter())));
     }
 
     static void generateBiomeModifiers(BootstapContext<BiomeModifier> context) {

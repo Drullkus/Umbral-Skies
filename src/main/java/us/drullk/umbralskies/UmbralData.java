@@ -19,14 +19,14 @@ import java.util.concurrent.CompletableFuture;
 
 public class UmbralData {
     private static final RegistrySetBuilder DATA_BUILDER = new RegistrySetBuilder()
-            .add(WoodPalettes.WOOD_PALETTE_TYPE_KEY, UmbralKeys::generateWoodPalettes)
-            .add(Registries.CONFIGURED_FEATURE, UmbralKeys::generateFeatureConfigurations)
-            .add(Registries.PLACED_FEATURE, UmbralKeys::generatePlacedFeatures)
-            .add(ForgeRegistries.Keys.BIOME_MODIFIERS, UmbralKeys::generateBiomeModifiers);
+            .add(WoodPalettes.WOOD_PALETTE_TYPE_KEY, UmbralContent::generateWoodPalettes)
+            .add(Registries.CONFIGURED_FEATURE, UmbralContent::generateFeatureConfigurations)
+            .add(Registries.PLACED_FEATURE, UmbralContent::generatePlacedFeatures)
+            .add(ForgeRegistries.Keys.BIOME_MODIFIERS, UmbralContent::generateBiomeModifiers);
 
     public static WeightedRandomList<WeightedEntry.Wrapper<HolderSet<WoodPalette>>> buildPaletteChoices(HolderGetter<WoodPalette> paletteHolders) {
-        var skyroot = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralKeys.SKYROOT_PALETTE)), 20);
-        var holystone = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralKeys.HOLYSTONE_PALETTE)), 9);
+        var skyroot = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralContent.SKYROOT_PALETTE)), 20);
+        var holystone = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralContent.HOLYSTONE_PALETTE)), 9);
         var treasure = WeightedEntry.<HolderSet<WoodPalette>>wrap(paletteHolders.getOrThrow(CustomTagGenerator.WoodPaletteTagGenerator.TREASURE_PALETTES), 1);
 
         return WeightedRandomList.create(skyroot, holystone, treasure);

@@ -12,7 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.concurrent.CompletableFuture;
 
 public class UmbralTags {
-    public static final TagKey<PlacedFeature> ADDED_AETHER_FEATURES = TagKey.create(Registries.PLACED_FEATURE, UmbralSkies.prefix("aether_features"));
+    public static final TagKey<PlacedFeature> ADDED_AETHER_FEATURES = TagKey.create(Registries.PLACED_FEATURE, UmbralSkies.prefix("twilight_to_aether_features"));
 
     public static class UmbralPlacedFeatureTag extends TagsProvider<PlacedFeature> {
         protected UmbralPlacedFeatureTag(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, @Nullable ExistingFileHelper existingFileHelper) {
@@ -21,7 +21,7 @@ public class UmbralTags {
 
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            tag(ADDED_AETHER_FEATURES).add(UmbralKeys.AETHER_DRUID_HUT, UmbralKeys.PLACEABLE_AETHER_WELL);
+            tag(ADDED_AETHER_FEATURES).add(UmbralContent.AETHER_DRUID_HUT, UmbralContent.PLACEABLE_AETHER_WELL);
         }
     }
 }
