@@ -3,16 +3,257 @@
   "config": {
     "palette_choices": [
       {
-        "data": "umbral_skies:skyroot",
-        "weight": 20
+        "data": "#twilightforest:common",
+        "weight": 8
       },
       {
-        "data": "umbral_skies:holystone",
-        "weight": 9
+        "data": "#twilightforest:uncommon",
+        "weight": 4
+      },
+      {
+        "data": "#twilightforest:rare",
+        "weight": 3
       },
       {
         "data": "#twilightforest:treasure",
         "weight": 1
+      }
+    ],
+    "preprocessing_rules": [
+      {
+        "input_predicate": {
+          "block": "minecraft:oak_planks",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:skyroot_planks"
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "minecraft:oak_stairs",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:skyroot_stairs",
+          "Properties": {
+            "facing": "north",
+            "half": "bottom",
+            "shape": "straight",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "minecraft:oak_slab",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:skyroot_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "predicate_type": "minecraft:tag_match",
+          "tag": "minecraft:logs"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:skyroot_log",
+          "Properties": {
+            "axis": "y",
+            "double_drops": "false"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "minecraft:dirt",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:aether_dirt",
+          "Properties": {
+            "double_drops": "true"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "minecraft:grass_block",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:aether_grass_block",
+          "Properties": {
+            "double_drops": "true",
+            "snowy": "false"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "minecraft:cobblestone",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:holystone",
+          "Properties": {
+            "double_drops": "true"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "minecraft:cobblestone_stairs",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:holystone_stairs",
+          "Properties": {
+            "facing": "north",
+            "half": "bottom",
+            "shape": "straight",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "minecraft:cobblestone_slab",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:holystone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "minecraft:cobblestone_wall",
+          "predicate_type": "minecraft:block_match"
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:holystone_wall",
+          "Properties": {
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "up": "true",
+            "waterlogged": "false",
+            "west": "none"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "aether:holystone",
+          "predicate_type": "minecraft:random_block_match",
+          "probability": 0.25
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:mossy_holystone",
+          "Properties": {
+            "double_drops": "true"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "aether:holystone_stairs",
+          "predicate_type": "minecraft:random_block_match",
+          "probability": 0.25
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:mossy_holystone_stairs",
+          "Properties": {
+            "facing": "north",
+            "half": "bottom",
+            "shape": "straight",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "aether:holystone_slab",
+          "predicate_type": "minecraft:random_block_match",
+          "probability": 0.25
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:mossy_holystone_slab",
+          "Properties": {
+            "type": "bottom",
+            "waterlogged": "false"
+          }
+        }
+      },
+      {
+        "input_predicate": {
+          "block": "aether:holystone_wall",
+          "predicate_type": "minecraft:random_block_match",
+          "probability": 0.25
+        },
+        "location_predicate": {
+          "predicate_type": "minecraft:always_true"
+        },
+        "output_state": {
+          "Name": "aether:mossy_holystone_wall",
+          "Properties": {
+            "east": "none",
+            "north": "none",
+            "south": "none",
+            "up": "true",
+            "waterlogged": "false",
+            "west": "none"
+          }
+        }
       }
     ],
     "target_palettes": "#twilightforest:well_swizzle_mask"

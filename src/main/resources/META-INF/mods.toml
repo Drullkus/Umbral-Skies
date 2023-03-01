@@ -9,28 +9,32 @@ displayName="Umbral Skies" #mandatory
 # displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
 # logoFile="examplemod.png"
 # credits=""
-# authors="Love, Cheese and small house plants"
+authors="Drullkus"
 # displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
 description='''
-Find Twilight Forest structures in The Aether!
+Find Twilight Forest features in The Aether!
 '''
-# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
-[[dependencies.umbral_skies]] #optional
-    # the modid of the dependency
-    modId="forge" #mandatory
-    # Does this dependency have to exist - if not, ordering below must be specified
-    mandatory=true #mandatory
-    # The version range of the dependency
-    versionRange="[44,)" #mandatory
-    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+[[dependencies.umbral_skies]]
+    modId="forge"
+    mandatory=true
+    versionRange="[44,)"
     ordering="NONE"
-    # Side this dependency is applied on - BOTH, CLIENT or SERVER
     side="BOTH"
-# Here's another dependency
 [[dependencies.umbral_skies]]
     modId="minecraft"
     mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
     versionRange="[1.19.3,1.20)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.umbral_skies]]
+    modId="twilightforest"
+    mandatory=true
+    versionRange="[4.2.1614,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.umbral_skies]]
+    modId="aether"
+    mandatory=true
+    versionRange="[0.4.0,)"
     ordering="NONE"
     side="BOTH"

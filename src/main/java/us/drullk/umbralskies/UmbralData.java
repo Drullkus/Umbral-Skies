@@ -13,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import twilightforest.data.tags.CustomTagGenerator;
 import twilightforest.init.custom.WoodPalettes;
 import twilightforest.util.WoodPalette;
+import twilightforest.world.components.feature.config.SwizzleConfig;
 
 import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
@@ -25,11 +26,14 @@ public class UmbralData {
             .add(ForgeRegistries.Keys.BIOME_MODIFIERS, UmbralContent::generateBiomeModifiers);
 
     public static WeightedRandomList<WeightedEntry.Wrapper<HolderSet<WoodPalette>>> buildPaletteChoices(HolderGetter<WoodPalette> paletteHolders) {
-        var skyroot = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralContent.SKYROOT_PALETTE)), 20);
-        var holystone = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralContent.HOLYSTONE_PALETTE)), 9);
+        var skyroot = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralContent.SKYROOT_PALETTE)), 24);
         var treasure = WeightedEntry.<HolderSet<WoodPalette>>wrap(paletteHolders.getOrThrow(CustomTagGenerator.WoodPaletteTagGenerator.TREASURE_PALETTES), 1);
 
-        return WeightedRandomList.create(skyroot, holystone, treasure);
+        return WeightedRandomList.create(skyroot, treasure);
+    }
+
+    public static WeightedRandomList<WeightedEntry.Wrapper<HolderSet<WoodPalette>>> buildSimpleWellPaletteChoices(HolderGetter<WoodPalette> paletteHolders) {
+        return SwizzleConfig.buildRarityPalette(paletteHolders);
     }
 
     public static void gatherData(GatherDataEvent event) {
