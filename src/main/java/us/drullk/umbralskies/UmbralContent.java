@@ -1,9 +1,9 @@
 package us.drullk.umbralskies;
 
-import com.gildedgames.aether.AetherTags;
-import com.gildedgames.aether.block.AetherBlockStateProperties;
-import com.gildedgames.aether.block.AetherBlocks;
-import com.gildedgames.aether.world.placementmodifier.DungeonBlacklistFilter;
+import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.block.AetherBlockStateProperties;
+import com.aetherteam.aether.block.AetherBlocks;
+import com.aetherteam.aether.world.placementmodifier.DungeonBlacklistFilter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderSet;

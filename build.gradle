@@ -14,7 +14,7 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: 'official', version: '1.19.3'
+    mappings channel: 'official', version: '1.19.4'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -36,6 +36,7 @@ minecraft {
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'umbral_skies'
+            property 'mixin.env.disableRefMap', 'true'
 
             mods {
                 umbral_skies {
@@ -48,10 +49,9 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
             property 'forge.enabledGameTestNamespaces', 'umbral_skies'
+            property 'mixin.env.disableRefMap', 'true'
 
             mods {
                 umbral_skies {
@@ -67,10 +67,9 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
-
             property 'forge.enabledGameTestNamespaces', 'umbral_skies'
+            property 'mixin.env.disableRefMap', 'true'
 
             mods {
                 umbral_skies {
@@ -83,8 +82,8 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
+            property 'mixin.env.disableRefMap', 'true'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', 'umbral_skies', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
@@ -114,19 +113,20 @@ repositories {
     maven { url 'https://maven.tamaized.com/releases/' }
 
     maven { url = "https://maven.theillusivec4.top/" }
-    maven githubPackage.invoke("Gilded-Games/The-Aether")
+    maven githubPackage.invoke("The-Aether-Team/The-Aether")
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.19.3-44.1.20'
+    minecraft 'net.minecraftforge:forge:1.19.4-45.0.49'
+
+    implementation fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
 
     // Find Twilight Forest builds from https://tamaized.com/azure/twilightforest/
     implementation fg.deobf("teamtwilight:twilightforest:${twilight_version}:universal")
 
     // Aether
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
-    compileOnly "com.gildedgames.aether:aether:${aether_version}"
-    runtimeOnly fg.deobf("com.gildedgames.aether:aether:${aether_version}")
+    compileOnly "com.aetherteam.aether:aether:${aether_version}"
+    runtimeOnly fg.deobf("com.aetherteam.aether:aether:${aether_version}")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
