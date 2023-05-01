@@ -170,12 +170,12 @@ tasks.withType(JavaCompile).configureEach {
 tasks.register('lowcode', Jar) {
     classifier = 'lowcode'
     archiveName = "${project.name}-${project.version}.jar"
+    from('src/main/resources') { exclude '**/META-INF/mods.toml' }
     from('src/main/resources/META-INF/mods.toml') {
         filter { String line ->
             line.startsWith('#') ? null : line.replace('${file.jarVersion}', "${project.version}").replace('javafml', 'lowcodefml')
         }
         into('META-INF')
     }
-    from('src/main/resources/pack.mcmeta')
     from('src/generated/resources') { exclude '**/.cache/**' }
 }
