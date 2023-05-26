@@ -211,7 +211,7 @@
       },
       {
         "input_predicate": {
-          "block": "minecraft:stone_bricks",
+          "block": "minecraft:chiseled_stone_bricks",
           "predicate_type": "minecraft:block_match"
         },
         "location_predicate": {

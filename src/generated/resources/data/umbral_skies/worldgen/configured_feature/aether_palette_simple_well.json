@@ -3,16 +3,8 @@
   "config": {
     "palette_choices": [
       {
-        "data": "#twilightforest:common",
-        "weight": 8
-      },
-      {
-        "data": "#twilightforest:uncommon",
-        "weight": 4
-      },
-      {
-        "data": "#twilightforest:rare",
-        "weight": 3
+        "data": "umbral_skies:skyroot",
+        "weight": 24
       },
       {
         "data": "#twilightforest:treasure",
@@ -20,52 +12,6 @@
       }
     ],
     "preprocessing_rules": [
-      {
-        "input_predicate": {
-          "block": "minecraft:oak_planks",
-          "predicate_type": "minecraft:block_match"
-        },
-        "location_predicate": {
-          "predicate_type": "minecraft:always_true"
-        },
-        "output_state": {
-          "Name": "aether:skyroot_planks"
-        }
-      },
-      {
-        "input_predicate": {
-          "block": "minecraft:oak_stairs",
-          "predicate_type": "minecraft:block_match"
-        },
-        "location_predicate": {
-          "predicate_type": "minecraft:always_true"
-        },
-        "output_state": {
-          "Name": "aether:skyroot_stairs",
-          "Properties": {
-            "facing": "north",
-            "half": "bottom",
-            "shape": "straight",
-            "waterlogged": "false"
-          }
-        }
-      },
-      {
-        "input_predicate": {
-          "block": "minecraft:oak_slab",
-          "predicate_type": "minecraft:block_match"
-        },
-        "location_predicate": {
-          "predicate_type": "minecraft:always_true"
-        },
-        "output_state": {
-          "Name": "aether:skyroot_slab",
-          "Properties": {
-            "type": "bottom",
-            "waterlogged": "false"
-          }
-        }
-      },
       {
         "input_predicate": {
           "predicate_type": "minecraft:tag_match",

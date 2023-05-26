@@ -86,7 +86,7 @@ minecraft {
             property 'mixin.env.disableRefMap', 'true'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'umbral_skies', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'umbral_skies', '--all', '--existing-mod', 'aether', '--existing-mod', 'twilightforest', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
                 umbral_skies {
@@ -167,15 +167,16 @@ tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
 
-tasks.register('lowcode', Jar) {
-    classifier = 'lowcode'
-    archiveName = "${project.name}-${project.version}.jar"
-    from('src/main/resources') { exclude '**/META-INF/mods.toml' }
-    from('src/main/resources/META-INF/mods.toml') {
-        filter { String line ->
-            line.startsWith('#') ? null : line.replace('${file.jarVersion}', "${project.version}").replace('javafml', 'lowcodefml')
-        }
-        into('META-INF')
-    }
-    from('src/generated/resources') { exclude '**/.cache/**' }
-}
+// Mod now requires to be Java-loaded, for new blocks + items
+//tasks.register('lowcode', Jar) {
+//    classifier = 'lowcode'
+//    archiveName = "${project.name}-${project.version}.jar"
+//    from('src/main/resources') { exclude '**/META-INF/mods.toml' }
+//    from('src/main/resources/META-INF/mods.toml') {
+//        filter { String line ->
+//            line.startsWith('#') ? null : line.replace('${file.jarVersion}', "${project.version}").replace('javafml', 'lowcodefml')
+//        }
+//        into('META-INF')
+//    }
+//    from('src/generated/resources') { exclude '**/.cache/**' }
+//}

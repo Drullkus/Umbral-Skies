@@ -28,6 +28,7 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.data.event.GatherDataEvent;
@@ -38,7 +39,8 @@ import twilightforest.init.TFFeatures;
 import twilightforest.init.custom.WoodPalettes;
 import twilightforest.util.WoodPalette;
 import twilightforest.world.components.feature.config.SwizzleConfig;
-import us.drullk.umbralskies.UmbralContent;
+import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.UmbralKeys;
 import us.drullk.umbralskies.UmbralSkies;
 
 import java.util.Collections;
@@ -53,29 +55,30 @@ public class DataGeneration {
             .add(ForgeRegistries.Keys.BIOME_MODIFIERS, DataGeneration::generateBiomeModifiers);
 
     public static WeightedRandomList<WeightedEntry.Wrapper<HolderSet<WoodPalette>>> buildPaletteChoices(HolderGetter<WoodPalette> paletteHolders) {
-        var skyroot = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralContent.SKYROOT_PALETTE)), 24);
+        var skyroot = WeightedEntry.<HolderSet<WoodPalette>>wrap(HolderSet.direct(paletteHolders.getOrThrow(UmbralKeys.SKYROOT_PALETTE)), 24);
         var treasure = WeightedEntry.<HolderSet<WoodPalette>>wrap(paletteHolders.getOrThrow(CustomTagGenerator.WoodPaletteTagGenerator.TREASURE_PALETTES), 1);
 
         return WeightedRandomList.create(skyroot, treasure);
     }
 
-    public static WeightedRandomList<WeightedEntry.Wrapper<HolderSet<WoodPalette>>> buildSimpleWellPaletteChoices(HolderGetter<WoodPalette> paletteHolders) {
-        return SwizzleConfig.buildRarityPalette(paletteHolders);
-    }
-
     public static void gatherData(GatherDataEvent event) {
         boolean isServer = event.includeServer();
+        boolean isClient = event.includeClient();
+
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(isServer, new UmbralTags.UmbralBlockTags(output, provider, event.getExistingFileHelper()));
+        generator.addProvider(isClient, new BlockStateModels(output, existingFileHelper));
+        generator.addProvider(isClient, new ItemModels(output, existingFileHelper));
+        generator.addProvider(isServer, new UmbralTags.UmbralBlockTags(output, provider, existingFileHelper));
         generator.addProvider(isServer, new DatapackBuiltinEntriesProvider(output, provider, DATA_BUILDER, Collections.singleton(UmbralSkies.MODID)));
-        generator.addProvider(isServer, new UmbralTags.UmbralPlacedFeatureTags(output, provider.thenApply(p -> DATA_BUILDER.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), p)), event.getExistingFileHelper()));
+        generator.addProvider(isServer, new UmbralTags.UmbralPlacedFeatureTags(output, provider.thenApply(p -> DATA_BUILDER.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), p)), existingFileHelper));
     }
 
     static void generateWoodPalettes(BootstapContext<WoodPalette> context) {
-        context.register(UmbralContent.SKYROOT_PALETTE, new WoodPalette(
+        context.register(UmbralKeys.SKYROOT_PALETTE, new WoodPalette(
                 AetherBlocks.SKYROOT_PLANKS.get(),
                 AetherBlocks.SKYROOT_STAIRS.get(),
                 AetherBlocks.SKYROOT_SLAB.get(),
@@ -83,7 +86,7 @@ public class DataGeneration {
                 AetherBlocks.SKYROOT_FENCE.get(),
                 AetherBlocks.SKYROOT_FENCE_GATE.get(),
                 AetherBlocks.SKYROOT_PRESSURE_PLATE.get(),
-                TFBlocks.CANOPY_BANISTER.get() // FIXME new block
+                UmbralBlocks.SKYROOT_BANISTER.get()
         ));
     }
 
@@ -108,7 +111,7 @@ public class DataGeneration {
         ProcessorRule stoneBrick2HolystoneStair = new ProcessorRule(new BlockMatchTest(Blocks.STONE_BRICK_STAIRS), AlwaysTrueTest.INSTANCE, AetherBlocks.HOLYSTONE_STAIRS.get().defaultBlockState());
         ProcessorRule stoneBrick2HolystoneSlab = new ProcessorRule(new BlockMatchTest(Blocks.STONE_BRICK_SLAB), AlwaysTrueTest.INSTANCE, AetherBlocks.HOLYSTONE_SLAB.get().defaultBlockState());
         ProcessorRule stoneBrick2HolystoneWall = new ProcessorRule(new BlockMatchTest(Blocks.STONE_BRICK_WALL), AlwaysTrueTest.INSTANCE, AetherBlocks.HOLYSTONE_WALL.get().defaultBlockState());
-        ProcessorRule stoneChiseled2HolystoneBlock = new ProcessorRule(new BlockMatchTest(Blocks.STONE_BRICKS), AlwaysTrueTest.INSTANCE, AetherBlocks.HOLYSTONE.get().defaultBlockState());
+        ProcessorRule stoneChiseled2HolystoneBlock = new ProcessorRule(new BlockMatchTest(Blocks.CHISELED_STONE_BRICKS), AlwaysTrueTest.INSTANCE, AetherBlocks.HOLYSTONE.get().defaultBlockState());
 
         // Stone Bricks -> Holystone Bricks
         ProcessorRule stoneBrick2HolyBrickBlock = new ProcessorRule(new BlockMatchTest(Blocks.STONE_BRICKS), AlwaysTrueTest.INSTANCE, AetherBlocks.HOLYSTONE_BRICKS.get().defaultBlockState());
@@ -151,12 +154,9 @@ public class DataGeneration {
                 randomHolyMossSlab,
                 randomHolyMossWall
         );
-        context.register(UmbralContent.AETHER_HUT_PALETTE, new ConfiguredFeature<>(TFFeatures.DRUID_HUT.get(), aetherHutSwizzle));
+        context.register(UmbralKeys.AETHER_HUT_PALETTE, new ConfiguredFeature<>(TFFeatures.DRUID_HUT.get(), aetherHutSwizzle));
 
-        SwizzleConfig aetherSimpleWellSwizzle = SwizzleConfig.generate(woodPaletteGetter, CustomTagGenerator.WoodPaletteTagGenerator.WELL_SWIZZLE_MASK, buildSimpleWellPaletteChoices(woodPaletteGetter),
-                new ProcessorRule(new BlockMatchTest(Blocks.OAK_PLANKS), AlwaysTrueTest.INSTANCE, AetherBlocks.SKYROOT_PLANKS.get().defaultBlockState()),
-                new ProcessorRule(new BlockMatchTest(Blocks.OAK_STAIRS), AlwaysTrueTest.INSTANCE, AetherBlocks.SKYROOT_STAIRS.get().defaultBlockState()),
-                new ProcessorRule(new BlockMatchTest(Blocks.OAK_SLAB), AlwaysTrueTest.INSTANCE, AetherBlocks.SKYROOT_SLAB.get().defaultBlockState()),
+        SwizzleConfig aetherSimpleWellSwizzle = SwizzleConfig.generate(woodPaletteGetter, CustomTagGenerator.WoodPaletteTagGenerator.WELL_SWIZZLE_MASK, paletteList,
                 processorLogs,
                 processorAetherDirt,
                 processorAetherGrass,
@@ -169,7 +169,7 @@ public class DataGeneration {
                 randomHolyMossSlab,
                 randomHolyMossWall
         );
-        context.register(UmbralContent.AETHER_SIMPLE_WELL_PALETTE, new ConfiguredFeature<>(TFFeatures.SIMPLE_WELL.get(), aetherSimpleWellSwizzle));
+        context.register(UmbralKeys.AETHER_SIMPLE_WELL_PALETTE, new ConfiguredFeature<>(TFFeatures.SIMPLE_WELL.get(), aetherSimpleWellSwizzle));
 
         SwizzleConfig aetherFancyWellSwizzle = SwizzleConfig.generate(woodPaletteGetter, CustomTagGenerator.WoodPaletteTagGenerator.WELL_SWIZZLE_MASK, paletteList,
                 processorLogs,
@@ -190,14 +190,14 @@ public class DataGeneration {
                 randomHolyMossSlab,
                 randomHolyMossWall
         );
-        context.register(UmbralContent.AETHER_FANCY_WELL_PALETTE, new ConfiguredFeature<>(TFFeatures.FANCY_WELL.get(), aetherFancyWellSwizzle));
+        context.register(UmbralKeys.AETHER_FANCY_WELL_PALETTE, new ConfiguredFeature<>(TFFeatures.FANCY_WELL.get(), aetherFancyWellSwizzle));
 
-        context.register(UmbralContent.RANDOMIZED_AETHER_WELL, new ConfiguredFeature<>(Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(UmbralContent.AETHER_FANCY_WELL_PALETTE)), 0.05f)), PlacementUtils.inlinePlaced(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(UmbralContent.AETHER_SIMPLE_WELL_PALETTE)))));
+        context.register(UmbralKeys.RANDOMIZED_AETHER_WELL, new ConfiguredFeature<>(Feature.RANDOM_SELECTOR, new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(PlacementUtils.inlinePlaced(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(UmbralKeys.AETHER_FANCY_WELL_PALETTE)), 0.05f)), PlacementUtils.inlinePlaced(context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(UmbralKeys.AETHER_SIMPLE_WELL_PALETTE)))));
     }
 
     private static void generatePlacedFeatures(BootstapContext<PlacedFeature> context) {
-        depthChecked(context, 15, 15, UmbralContent.AETHER_DRUID_HUT, UmbralContent.AETHER_HUT_PALETTE);
-        depthChecked(context, 5, 15, UmbralContent.PLACEABLE_AETHER_WELL, UmbralContent.RANDOMIZED_AETHER_WELL);
+        depthChecked(context, 15, 15, UmbralKeys.AETHER_DRUID_HUT, UmbralKeys.AETHER_HUT_PALETTE);
+        depthChecked(context, 5, 15, UmbralKeys.PLACEABLE_AETHER_WELL, UmbralKeys.RANDOMIZED_AETHER_WELL);
     }
 
     private static void depthChecked(BootstapContext<PlacedFeature> context, int dist, int depth, ResourceKey<PlacedFeature> aetherDruidHut, ResourceKey<ConfiguredFeature<?, ?>> aetherHutPalette) {
@@ -225,6 +225,6 @@ public class DataGeneration {
         HolderSet<Biome> aetherBiomeTarget = context.lookup(Registries.BIOME).getOrThrow(AetherTags.Biomes.IS_AETHER);
         HolderSet<PlacedFeature> twilightFeatures = context.lookup(Registries.PLACED_FEATURE).getOrThrow(UmbralTags.ADDED_AETHER_FEATURES);
 
-        context.register(UmbralContent.AETHER_MODIFIER, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(aetherBiomeTarget, twilightFeatures, GenerationStep.Decoration.SURFACE_STRUCTURES));
+        context.register(UmbralKeys.AETHER_MODIFIER, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(aetherBiomeTarget, twilightFeatures, GenerationStep.Decoration.SURFACE_STRUCTURES));
     }
 }

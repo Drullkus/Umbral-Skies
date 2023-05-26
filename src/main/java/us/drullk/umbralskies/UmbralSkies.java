@@ -17,15 +17,13 @@ import us.drullk.umbralskies.data.DataGeneration;
 public class UmbralSkies {
     public static final String MODID = "umbral_skies";
     private static final Logger LOGGER = LogUtils.getLogger();
-    public static final DeferredRegister<BiomeModifier> BIOME_MODIFIERS = DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIERS, MODID);
-
-    //public static final RegistryObject<Block> EXAMPLE_BIOME_MOD = BLOCKS.register("example_block", () -> new ForgeBiomeModifiers.AddFeaturesBiomeModifier());
 
     public UmbralSkies() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        BIOME_MODIFIERS.register(modEventBus);
+        UmbralBlocks.BLOCKS.register(modEventBus);
 
+        modEventBus.addListener(UmbralBlocks::registerItemsForBlocks);
         modEventBus.addListener(DataGeneration::gatherData);
 
         MinecraftForge.EVENT_BUS.register(this);

@@ -1,0 +1,6 @@
+{
+  "parent": "twilightforest:block/banister_connected",
+  "textures": {
+    "texture": "aether:block/construction/skyroot_planks"
+  }
+}
