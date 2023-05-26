@@ -10,6 +10,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+import us.drullk.umbralskies.data.DataGeneration;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(UmbralSkies.MODID)
@@ -25,7 +26,7 @@ public class UmbralSkies {
 
         BIOME_MODIFIERS.register(modEventBus);
 
-        modEventBus.addListener(UmbralData::gatherData);
+        modEventBus.addListener(DataGeneration::gatherData);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

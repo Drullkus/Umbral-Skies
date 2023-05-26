@@ -66,6 +66,54 @@
         "type": "minecraft:matching_block_tag",
         "offset": [
           0,
+          -7,
+          0
+        ],
+        "tag": "umbral_skies:generation_replaceable"
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "offset": [
+          5,
+          -7,
+          0
+        ],
+        "tag": "umbral_skies:generation_replaceable"
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "offset": [
+          0,
+          -7,
+          5
+        ],
+        "tag": "umbral_skies:generation_replaceable"
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "offset": [
+          5,
+          -7,
+          5
+        ],
+        "tag": "umbral_skies:generation_replaceable"
+      }
+    },
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_block_tag",
+        "offset": [
+          0,
           -15,
           0
         ],

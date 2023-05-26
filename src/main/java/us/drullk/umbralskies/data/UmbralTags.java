@@ -1,4 +1,4 @@
-package us.drullk.umbralskies;
+package us.drullk.umbralskies.data;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -13,6 +13,8 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import twilightforest.data.tags.BlockTagGenerator;
+import us.drullk.umbralskies.UmbralContent;
+import us.drullk.umbralskies.UmbralSkies;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -38,7 +40,9 @@ public class UmbralTags {
 
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            tag(AETHER_WORLDGEN).addTags(BlockTags.SCULK_REPLACEABLE_WORLD_GEN, Tags.Blocks.STONE, BlockTags.DIRT).addOptionalTag(BlockTagGenerator.WORLDGEN_REPLACEABLES.location());
+            tag(AETHER_WORLDGEN).addTags(BlockTags.SCULK_REPLACEABLE_WORLD_GEN, Tags.Blocks.STONE, BlockTags.DIRT)
+                    // Tag isn't available during datagen, using regular addTag crashes datagen
+                    .addOptionalTag(BlockTagGenerator.WORLDGEN_REPLACEABLES.location());
         }
     }
 }
