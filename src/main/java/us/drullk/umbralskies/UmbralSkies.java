@@ -22,6 +22,7 @@ public class UmbralSkies {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         UmbralBlocks.BLOCKS.register(modEventBus);
+        UmbralItems.ITEMS.register(modEventBus);
 
         modEventBus.addListener(UmbralBlocks::registerItemsForBlocks);
         modEventBus.addListener(DataGeneration::gatherData);

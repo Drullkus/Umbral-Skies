@@ -5,6 +5,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import twilightforest.TwilightForestMod;
 import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.UmbralItems;
 import us.drullk.umbralskies.UmbralKeys;
 import us.drullk.umbralskies.UmbralSkies;
 
@@ -16,5 +17,14 @@ public class ItemModels extends ItemModelProvider {
     @Override
     protected void registerModels() {
         withExistingParent(UmbralBlocks.SKYROOT_BANISTER.getId().toString(), TwilightForestMod.prefix("item/banister_item")).texture("texture", UmbralKeys.SKYROOT_BANISTER_TEX);
+
+        basicItem(UmbralItems.NAGA_GLOVES.get());
+        basicItem(UmbralItems.IRONWOOD_GLOVES.get());
+        basicItem(UmbralItems.FIERY_GLOVES.get());
+        basicItem(UmbralItems.STEELEAF_GLOVES.get());
+        basicItem(UmbralItems.KNIGHTMETAL_GLOVES.get());
+        basicItem(UmbralItems.PHANTOM_GLOVES.get());
+        basicItem(UmbralItems.ARCTIC_GLOVES.get());
+        basicItem(UmbralItems.YETI_GLOVES.get());
     }
 }

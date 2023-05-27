@@ -1,3 +1,12 @@
 {
-  "block.umbral_skies.skyroot_banister": "Skyroot Banister"
+  "block.umbral_skies.skyroot_banister": "Skyroot Banister",
+  "item.umbral_skies.arctic_gloves": "Arctic Mittens",
+  "item.umbral_skies.fiery_gloves": "Fiery Gloves",
+  "item.umbral_skies.ironwood_gloves": "Ironwood Gloves",
+  "item.umbral_skies.knightmetal_gloves": "Knightmetal Gauntlets",
+  "item.umbral_skies.naga_gloves": "Naga Scale Gloves",
+  "item.umbral_skies.phantom_gloves": "Phantom Gauntlets",
+  "item.umbral_skies.steeleaf_gloves": "Steeleaf Gloves",
+  "item.umbral_skies.yeti_gloves": "Yeti Gloves",
+  "lore.block.umbral_skies.skyroot_banister": "A banister like those found within the Twilight Forest, made of Skyroot wood."
 }
