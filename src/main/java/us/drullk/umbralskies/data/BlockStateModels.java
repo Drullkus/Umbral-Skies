@@ -25,8 +25,6 @@ public class BlockStateModels extends BlockStateProvider {
     }
 
     private void banister(BanisterBlock banister, ResourceLocation tex0, String woodName) {
-        String banisterDir = "block/wood/banister/" + woodName + "/";
-
         getVariantBuilder(banister).forAllStatesExcept(state -> {
             Direction facing = state.getValue(BanisterBlock.FACING);
             int yRot = (int) facing.toYRot();
@@ -34,11 +32,7 @@ public class BlockStateModels extends BlockStateProvider {
             String variant = state.getValue(BanisterBlock.SHAPE).getSerializedName() + extended;
 
             return ConfiguredModel.builder()
-                    .modelFile(models().withExistingParent(banisterDir + getBlockName(banister) + "_" + variant, TwilightForestMod.prefix("banister_" + variant)).texture("texture", tex0)).rotationY(yRot).build();
-            //String modelName = banisterDir + getBlockName(banister) + "_" + variant;
-            //ResourceLocation parentName = TwilightForestMod.prefix("banister_" + variant);
-            //return ConfiguredModel.builder()
-            //        .modelFile(models().getBuilder(modelName).parent(new ModelFile.UncheckedModelFile(parentName)).texture("texture", tex0)).rotationY(yRot).build();
+                    .modelFile(models().withExistingParent("block/" + getBlockName(banister) + "_" + variant, TwilightForestMod.prefix("banister_" + variant)).texture("texture", tex0)).rotationY(yRot).build();
         }, BanisterBlock.WATERLOGGED);
     }
 
