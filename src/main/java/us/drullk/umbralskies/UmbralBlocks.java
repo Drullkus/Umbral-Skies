@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 import twilightforest.block.BanisterBlock;
 
 public class UmbralBlocks {
-    static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UmbralSkies.MODID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UmbralSkies.MODID);
 
     public static final RegistryObject<BanisterBlock> SKYROOT_BANISTER = BLOCKS.register("skyroot_banister", () -> new BanisterBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 

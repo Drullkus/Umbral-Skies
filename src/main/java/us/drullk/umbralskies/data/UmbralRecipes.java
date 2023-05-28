@@ -10,7 +10,7 @@ import net.minecraftforge.common.Tags;
 import twilightforest.data.tags.ItemTagGenerator;
 import twilightforest.init.TFItems;
 import us.drullk.umbralskies.UmbralBlocks;
-import us.drullk.umbralskies.UmbralItems;
+import us.drullk.umbralskies.item.UmbralItems;
 import us.drullk.umbralskies.UmbralSkies;
 
 import java.util.function.Consumer;
