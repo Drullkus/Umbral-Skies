@@ -25,8 +25,11 @@ public class DataGeneration {
         generator.addProvider(isClient, new UmbralLocaleData(output));
         generator.addProvider(isClient, new BlockStateModels(output, existingFileHelper));
         generator.addProvider(isClient, new ItemModels(output, existingFileHelper));
-        generator.addProvider(isServer, new UmbralTags.UmbralBlockTags(output, provider, existingFileHelper));
+        UmbralTags.UmbralBlockTags blockTags = new UmbralTags.UmbralBlockTags(output, provider, existingFileHelper);
+        generator.addProvider(isServer, blockTags);
+        generator.addProvider(isServer, new UmbralTags.UmbralItemTags(output, provider, blockTags.contentsGetter(), existingFileHelper));
         generator.addProvider(isServer, new DatapackBuiltinEntriesProvider(output, provider, UmbralDataPack.DATA_BUILDER, Collections.singleton(UmbralSkies.MODID)));
         generator.addProvider(isServer, new UmbralTags.UmbralPlacedFeatureTags(output, provider.thenApply(p -> UmbralDataPack.DATA_BUILDER.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), p)), existingFileHelper));
+        generator.addProvider(isServer, new UmbralRecipes(output));
     }
 }

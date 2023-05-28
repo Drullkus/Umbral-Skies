@@ -1,8 +1,10 @@
 package us.drullk.umbralskies.data;
 
+import com.aetherteam.aether.AetherTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
@@ -14,6 +16,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import twilightforest.data.tags.BlockTagGenerator;
 import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.UmbralItems;
 import us.drullk.umbralskies.UmbralKeys;
 import us.drullk.umbralskies.UmbralSkies;
 
@@ -47,6 +50,26 @@ public class UmbralTags {
                     .addOptionalTag(BlockTagGenerator.WORLDGEN_REPLACEABLES.location());
 
             tag(BlockTagGenerator.BANISTERS).add(UmbralBlocks.SKYROOT_BANISTER.get());
+        }
+    }
+
+    public static class UmbralItemTags extends ItemTagsProvider {
+        public UmbralItemTags(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, CompletableFuture<TagLookup<Block>> blockLookup, @Nullable ExistingFileHelper existingFileHelper) {
+            super(output, provider, blockLookup, UmbralSkies.MODID, existingFileHelper);
+        }
+
+        @Override
+        protected void addTags(HolderLookup.Provider provider) {
+            tag(AetherTags.Items.AETHER_GLOVES).add(
+                    UmbralItems.NAGA_GLOVES.get(),
+                    UmbralItems.IRONWOOD_GLOVES.get(),
+                    UmbralItems.FIERY_GLOVES.get(),
+                    UmbralItems.STEELEAF_GLOVES.get(),
+                    UmbralItems.KNIGHTMETAL_GLOVES.get(),
+                    UmbralItems.PHANTOM_GLOVES.get(),
+                    UmbralItems.ARCTIC_GLOVES.get(),
+                    UmbralItems.YETI_GLOVES.get()
+            );
         }
     }
 }
