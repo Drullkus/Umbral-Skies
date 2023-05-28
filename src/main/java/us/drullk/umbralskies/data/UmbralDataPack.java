@@ -35,7 +35,7 @@ import twilightforest.init.TFFeatures;
 import twilightforest.init.custom.WoodPalettes;
 import twilightforest.util.WoodPalette;
 import twilightforest.world.components.feature.config.SwizzleConfig;
-import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.UmbralKeys;
 
 import java.util.List;

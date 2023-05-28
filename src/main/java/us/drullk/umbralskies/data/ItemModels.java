@@ -5,7 +5,7 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import twilightforest.TwilightForestMod;
-import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 import us.drullk.umbralskies.UmbralKeys;
 import us.drullk.umbralskies.UmbralSkies;

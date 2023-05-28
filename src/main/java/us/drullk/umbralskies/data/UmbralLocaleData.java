@@ -3,7 +3,7 @@ package us.drullk.umbralskies.data;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.data.LanguageProvider;
-import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 import us.drullk.umbralskies.UmbralSkies;
 

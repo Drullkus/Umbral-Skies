@@ -9,7 +9,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.Tags;
 import twilightforest.data.tags.ItemTagGenerator;
 import twilightforest.init.TFItems;
-import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 import us.drullk.umbralskies.UmbralSkies;
 

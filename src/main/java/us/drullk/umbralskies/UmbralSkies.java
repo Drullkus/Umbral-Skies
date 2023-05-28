@@ -7,6 +7,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.data.DataGeneration;
 import us.drullk.umbralskies.item.UmbralItems;
 
@@ -20,6 +21,7 @@ public class UmbralSkies {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         UmbralBlocks.BLOCKS.register(modEventBus);
+        UmbralBlocks.BLOCK_ENTITIES.register(modEventBus);
         UmbralItems.ITEMS.register(modEventBus);
 
         modEventBus.addListener(UmbralBlocks::registerItemsForBlocks);

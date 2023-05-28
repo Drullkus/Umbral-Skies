@@ -10,7 +10,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import twilightforest.TwilightForestMod;
 import twilightforest.block.BanisterBlock;
-import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.UmbralKeys;
 import us.drullk.umbralskies.UmbralSkies;
 

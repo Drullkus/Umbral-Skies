@@ -1,4 +1,4 @@
-package us.drullk.umbralskies;
+package us.drullk.umbralskies.client;
 
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraftforge.api.distmarker.Dist;

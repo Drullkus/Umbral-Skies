@@ -15,7 +15,7 @@ import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 import twilightforest.data.tags.BlockTagGenerator;
-import us.drullk.umbralskies.UmbralBlocks;
+import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 import us.drullk.umbralskies.UmbralKeys;
 import us.drullk.umbralskies.UmbralSkies;
