@@ -14,6 +14,5 @@ public class UmbralGloves extends GlovesItem {
     @Override
     public void setRenderTexture(String modId, String registryName) {
         this.GLOVES_TEXTURE = UmbralSkies.prefix("textures/models/gloves/" + registryName + ".png");
-        this.GLOVES_SLIM_TEXTURE = UmbralSkies.prefix("textures/models/gloves/" + registryName + "_slim.png");
     }
 }
