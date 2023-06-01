@@ -1,4 +1,4 @@
-package us.drullk.umbralskies.client;
+package us.drullk.umbralskies.client.renderer;
 
 import com.aetherteam.aether.client.renderer.accessory.GlovesRenderer;
 import com.mojang.blaze3d.vertex.PoseStack;

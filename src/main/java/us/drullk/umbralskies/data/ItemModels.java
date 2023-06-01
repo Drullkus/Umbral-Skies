@@ -17,15 +17,17 @@ public class ItemModels extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        withExistingParent(UmbralBlocks.SKYROOT_BANISTER.getId().toString(), TwilightForestMod.prefix("item/banister_item")).texture("texture", UmbralKeys.SKYROOT_BANISTER_TEX);
+        this.withExistingParent(UmbralBlocks.SKYROOT_BANISTER.getId().toString(), TwilightForestMod.prefix("item/banister_item")).texture("texture", UmbralKeys.SKYROOT_BANISTER_TEX);
 
-        basicItem(UmbralItems.NAGA_GLOVES.get());
-        basicItem(UmbralItems.IRONWOOD_GLOVES.get());
-        basicItem(UmbralItems.FIERY_GLOVES.get()).customLoader(ItemLayerModelBuilder::begin).emissive(15, 15, 0).end();
-        basicItem(UmbralItems.STEELEAF_GLOVES.get());
-        basicItem(UmbralItems.KNIGHTMETAL_GLOVES.get());
-        basicItem(UmbralItems.PHANTOM_GLOVES.get());
-        basicItem(UmbralItems.ARCTIC_GLOVES.get()).texture("layer1", UmbralSkies.prefix("item/" + UmbralItems.ARCTIC_GLOVES.getId().getPath() + "_overlay"));
-        basicItem(UmbralItems.YETI_GLOVES.get());
+        this.basicItem(UmbralItems.NAGA_GLOVES.get());
+        this.basicItem(UmbralItems.IRONWOOD_GLOVES.get());
+        this.basicItem(UmbralItems.FIERY_GLOVES.get()).customLoader(ItemLayerModelBuilder::begin).emissive(15, 15, 0).end();
+        this.basicItem(UmbralItems.STEELEAF_GLOVES.get());
+        this.basicItem(UmbralItems.KNIGHTMETAL_GLOVES.get());
+        this.basicItem(UmbralItems.PHANTOM_GLOVES.get());
+        this.basicItem(UmbralItems.ARCTIC_GLOVES.get()).texture("layer1", UmbralSkies.prefix("item/" + UmbralItems.ARCTIC_GLOVES.getId().getPath() + "_overlay"));
+        this.basicItem(UmbralItems.YETI_GLOVES.get());
+
+        this.basicItem(UmbralSkies.prefix("trophy_bronze"));
     }
 }

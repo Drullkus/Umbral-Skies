@@ -1,44 +1,35 @@
 package us.drullk.umbralskies.item;
 
-import net.minecraft.world.item.Item;
+import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.StandingAndWallBlockItem;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import org.jetbrains.annotations.Nullable;
 import us.drullk.umbralskies.block.FloorAetherTrophyBlock;
 import us.drullk.umbralskies.block.WallAetherTrophyBlock;
+import us.drullk.umbralskies.client.UmbralWithoutLevelRenderer;
 
-import java.util.function.Supplier;
+import java.util.function.Consumer;
 
-public class AetherTrophyItem extends Item {
-    private final Supplier<FloorAetherTrophyBlock> floorTrophyBlock;
-    private final Supplier<WallAetherTrophyBlock> wallTrophyBlock;
-
-    public AetherTrophyItem(Properties properties, Supplier<FloorAetherTrophyBlock> floorTrophyBlock, Supplier<WallAetherTrophyBlock> wallTrophyBlock) {
-        super(properties);
-        this.floorTrophyBlock = floorTrophyBlock;
-        this.wallTrophyBlock = wallTrophyBlock;
+public class AetherTrophyItem extends StandingAndWallBlockItem {
+    public AetherTrophyItem(FloorAetherTrophyBlock floorTrophyBlock, WallAetherTrophyBlock wallTrophyBlock, Properties properties) {
+        super(floorTrophyBlock, wallTrophyBlock, properties, Direction.DOWN);
     }
 
-    /*@Override
+    @Override
+    public boolean canEquip(ItemStack stack, EquipmentSlot armorType, Entity entity) {
+        return armorType == EquipmentSlot.HEAD;
+    }
+
+    @Override
+    public @Nullable EquipmentSlot getEquipmentSlot(ItemStack stack) {
+        return EquipmentSlot.HEAD;
+    }
+
+    @Override
     public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        consumer.accept(new AetherTrophyItemRenderer(this.block.get().blockEntityType.get()));
+        consumer.accept(UmbralWithoutLevelRenderer.ITEM_EXTENSION);
     }
-
-    private static final class AetherTrophyItemRenderer implements IClientItemExtensions {
-        private final BlockEntityWithoutLevelRenderer withoutLevelRenderer;
-
-        public AetherTrophyItemRenderer(BlockEntityType<AetherTrophyEntity> aetherTrophyBlock) {
-            if (aetherTrophyBlock == UmbralBlocks.SLIDER_TROPHY_ENTITY.get()) {
-                this.withoutLevelRenderer = new AetherTrophyRenderer.SliderWithoutLevel();
-            } else if (aetherTrophyBlock == UmbralBlocks.VALKYRIE_TROPHY_ENTITY.get()) {
-                this.withoutLevelRenderer = new AetherTrophyRenderer.SliderWithoutLevel();
-            } else if (aetherTrophyBlock == UmbralBlocks.SUN_SPIRIT_TROPHY_ENTITY.get()) {
-                this.withoutLevelRenderer = new AetherTrophyRenderer.SliderWithoutLevel();
-            } else {
-                this.withoutLevelRenderer = Minecraft.getInstance().getItemRenderer().getBlockEntityRenderer();
-            }
-        }
-
-        @Override
-        public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-            return this.withoutLevelRenderer;
-        }
-    }*/
 }
