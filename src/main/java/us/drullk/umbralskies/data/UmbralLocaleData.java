@@ -36,15 +36,22 @@ public class UmbralLocaleData extends LanguageProvider {
         this.addItem(UmbralItems.VALKYRIE_QUEEN_TROPHY, "Valkyrie Queen Trophy");
         this.addItem(UmbralItems.SUN_SPIRIT_TROPHY, "Sun Spirit Trophy");
 
-        this.makeAetherLore(UmbralBlocks.SKYROOT_BANISTER, "A banister like those found within the Twilight Forest, made of Skyroot wood.");
+        this.makeAetherLore(UmbralBlocks.SKYROOT_BANISTER, "A banister like those found from the Twilight Forest, however made of Skyroot wood.");
+
+        this.makeAetherLore(UmbralItems.NAGA_GLOVES, "An accessory for Naga armor set.");
+        this.makeAetherLore(UmbralItems.IRONWOOD_GLOVES, "An accessory for Ironwood armor set.");
+        this.makeAetherLore(UmbralItems.FIERY_GLOVES, "An accessory for Fiery armor set.");
+        this.makeAetherLore(UmbralItems.STEELEAF_GLOVES, "An accessory for Steeleaf armor set.");
+        this.makeAetherLore(UmbralItems.KNIGHTMETAL_GLOVES, "An accessory for Knightmetal armor set.");
+        this.makeAetherLore(UmbralItems.PHANTOM_GLOVES, "An accessory for Phantom armor set.");
+        this.makeAetherLore(UmbralItems.ARCTIC_GLOVES, "An accessory for Arctic armor set.");
+        this.makeAetherLore(UmbralItems.YETI_GLOVES, "An accessory for Yeti armor set.");
+
+        this.makeAetherLore(UmbralItems.SLIDER_TROPHY, "The trophy from the Slider, who sleeps inside the Bronze Dungeon.");
+        this.makeAetherLore(UmbralItems.VALKYRIE_QUEEN_TROPHY, "The trophy from the Valkyrie Queen, who rules the Silver Dungeon.");
+        this.makeAetherLore(UmbralItems.SUN_SPIRIT_TROPHY, "The trophy from the Sun Spirit, who resides within the Gold Dungeon.");
 
         this.add(UmbralTab.TAB_LOCALE, "Umbral Skies");
-
-        // Severely underestimated how much writing these require plus the rest of TF content - Would've just generated the rest if GPT 3.5 were more competent
-        //makeAetherLore(TFBlocks.NAGA_TROPHY, "The trophy of the Naga's head, marking the adventurer's victory over the fearsome serpentine adversary that guarded the Naga Courtyard, serves as a powerful symbol of their strength and dexterity.");
-        //makeAetherLore(TFBlocks.LICH_TROPHY, "The trophy of the Lich's head, obtained by defeating the powerful undead sorcerer and his unliving minions from the Lich Tower, serves as a testament to the adventurer's fearlessness and perseverance.");
-        //makeAetherLore(TFBlocks.MINOSHROOM_TROPHY, "The trophy of the Minoshroom's head, gained by defeating the fungal abomination within the Labyrinth's depths below the Swamps, is a symbol of skill about maneuvering and resolve.");
-        //makeAetherLore(TFBlocks.HYDRA_TROPHY, "The trophy from one of the Hydra's heads, reaped by conquering the multi-headed scourge of resource-rich Lairs among the Fiery Swamps, only those with fast reflexes and tenacity will be able to earn it.");
     }
 
     private void makeAetherLore(Supplier<? extends ItemLike> item, String text) {
