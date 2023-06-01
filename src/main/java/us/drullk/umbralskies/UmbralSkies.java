@@ -4,11 +4,13 @@ import com.mojang.logging.LogUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.Bindings;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.data.DataGeneration;
+import us.drullk.umbralskies.item.PhantomGloves;
 import us.drullk.umbralskies.item.UmbralItems;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -28,6 +30,8 @@ public class UmbralSkies {
         modEventBus.addListener(DataGeneration::gatherData);
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        Bindings.getForgeBus().get().addListener(PhantomGloves::keepPhantomGloves);
     }
 
     public static ResourceLocation prefix(String name) {
