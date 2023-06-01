@@ -6,6 +6,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -25,6 +26,8 @@ public class UmbralTab {
     }
 
     private static void generateItems(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) {
+        output.accept(UmbralBlocks.SKYROOT_BANISTER.get());
+
         output.accept(UmbralItems.NAGA_GLOVES.get());
         output.accept(UmbralItems.IRONWOOD_GLOVES.get());
         output.accept(UmbralItems.FIERY_GLOVES.get());
