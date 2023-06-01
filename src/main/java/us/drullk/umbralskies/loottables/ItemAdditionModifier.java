@@ -31,7 +31,7 @@ public class ItemAdditionModifier extends LootModifier {
 
     @Override
     protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-        int overflow = (generatedLoot.size() - 27);
+        int overflow = (generatedLoot.size() - 26);
         if (overflow > 0) generatedLoot.removeElements(26, 26 + overflow);
 
         for (ItemStack stack : this.additionalStacks) {
