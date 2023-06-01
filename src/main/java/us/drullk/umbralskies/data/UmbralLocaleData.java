@@ -16,18 +16,22 @@ public class UmbralLocaleData extends LanguageProvider {
 
     @Override
     protected void addTranslations() {
-        addBlock(UmbralBlocks.SKYROOT_BANISTER, "Skyroot Banister");
+        this.addBlock(UmbralBlocks.SKYROOT_BANISTER, "Skyroot Banister");
 
-        addItem(UmbralItems.NAGA_GLOVES, "Naga Scale Gloves");
-        addItem(UmbralItems.IRONWOOD_GLOVES, "Ironwood Gloves");
-        addItem(UmbralItems.FIERY_GLOVES, "Fiery Gloves");
-        addItem(UmbralItems.STEELEAF_GLOVES, "Steeleaf Gloves");
-        addItem(UmbralItems.KNIGHTMETAL_GLOVES, "Knightmetal Gauntlets");
-        addItem(UmbralItems.PHANTOM_GLOVES, "Phantom Gauntlets");
-        addItem(UmbralItems.ARCTIC_GLOVES, "Arctic Mittens");
-        addItem(UmbralItems.YETI_GLOVES, "Yeti Gloves");
+        this.addItem(UmbralItems.NAGA_GLOVES, "Naga Scale Gloves");
+        this.addItem(UmbralItems.IRONWOOD_GLOVES, "Ironwood Gloves");
+        this.addItem(UmbralItems.FIERY_GLOVES, "Fiery Gloves");
+        this.addItem(UmbralItems.STEELEAF_GLOVES, "Steeleaf Gloves");
+        this.addItem(UmbralItems.KNIGHTMETAL_GLOVES, "Knightmetal Gauntlets");
+        this.addItem(UmbralItems.PHANTOM_GLOVES, "Phantom Gauntlets");
+        this.addItem(UmbralItems.ARCTIC_GLOVES, "Arctic Mittens");
+        this.addItem(UmbralItems.YETI_GLOVES, "Yeti Gloves");
 
-        makeAetherLore(UmbralBlocks.SKYROOT_BANISTER, "A banister like those found within the Twilight Forest, made of Skyroot wood.");
+        this.addItem(UmbralItems.SLIDER_TROPHY, "Slider Trophy");
+        this.addItem(UmbralItems.VALKYRIE_QUEEN_TROPHY, "Valkyrie Queen Trophy");
+        this.addItem(UmbralItems.SUN_SPIRIT_TROPHY, "Sun Spirit Trophy");
+
+        this.makeAetherLore(UmbralBlocks.SKYROOT_BANISTER, "A banister like those found within the Twilight Forest, made of Skyroot wood.");
 
         // Severely underestimated how much writing these require plus the rest of TF content - Would've just generated the rest if GPT 3.5 were more competent
         //makeAetherLore(TFBlocks.NAGA_TROPHY, "The trophy of the Naga's head, marking the adventurer's victory over the fearsome serpentine adversary that guarded the Naga Courtyard, serves as a powerful symbol of their strength and dexterity.");

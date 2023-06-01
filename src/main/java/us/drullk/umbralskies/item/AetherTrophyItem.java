@@ -9,7 +9,7 @@ import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.Nullable;
 import us.drullk.umbralskies.block.FloorAetherTrophyBlock;
 import us.drullk.umbralskies.block.WallAetherTrophyBlock;
-import us.drullk.umbralskies.client.UmbralWithoutLevelRenderer;
+import us.drullk.umbralskies.client.renderer.UmbralWithoutLevelRenderer;
 
 import java.util.function.Consumer;
 

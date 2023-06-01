@@ -1,4 +1,4 @@
-package us.drullk.umbralskies.client;
+package us.drullk.umbralskies.client.renderer;
 
 import com.google.common.base.Suppliers;
 import com.mojang.blaze3d.platform.Lighting;
@@ -20,10 +20,6 @@ import twilightforest.TFConfig;
 import twilightforest.TwilightForestMod;
 import twilightforest.client.TFClientEvents;
 import us.drullk.umbralskies.UmbralSkies;
-import us.drullk.umbralskies.client.renderer.RenderWithoutEntity;
-import us.drullk.umbralskies.client.renderer.SliderTrophyRenderer;
-import us.drullk.umbralskies.client.renderer.SunSpiritTrophyRenderer;
-import us.drullk.umbralskies.client.renderer.ValkyrieQueenTrophyRenderer;
 import us.drullk.umbralskies.item.UmbralItems;
 
 import java.util.function.Supplier;
@@ -58,14 +54,14 @@ public class UmbralWithoutLevelRenderer extends BlockEntityWithoutLevelRenderer 
     public void renderByItem(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         if (stack.is(UmbralItems.SLIDER_TROPHY.get())) {
             this.render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.sliderTrophyRenderer, this.bronzeBackplate);
-        } else if (stack.is(UmbralItems.VALKYRIE_QUEEN_TROPHY_ENTITY.get())) {
+        } else if (stack.is(UmbralItems.VALKYRIE_QUEEN_TROPHY.get())) {
             this.render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.valkyrieQueenTrophyRenderer, this.silverBackplate);
-        } else if (stack.is(UmbralItems.SUN_SPIRIT_TROPHY_ENTITY.get())) {
+        } else if (stack.is(UmbralItems.SUN_SPIRIT_TROPHY.get())) {
             this.render(stack, context, poseStack, bufferSource, packedLight, packedOverlay, this.sunSpiritTrophyRenderer, this.goldBackplate);
         }
     }
 
-    private void render(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, RenderWithoutEntity withoutEntity, ModelResourceLocation backplateLocation) {
+    private static void render(ItemStack stack, ItemDisplayContext context, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, RenderWithoutEntity withoutEntity, ModelResourceLocation backplateLocation) {
         poseStack.pushPose();
         if (context == ItemDisplayContext.GUI) {
             poseStack.pushPose();

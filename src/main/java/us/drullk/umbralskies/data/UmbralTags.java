@@ -6,8 +6,10 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.Tags;
@@ -25,6 +27,7 @@ import java.util.concurrent.CompletableFuture;
 public class UmbralTags {
     public static final TagKey<Block> AETHER_WORLDGEN = TagKey.create(Registries.BLOCK, UmbralSkies.prefix("generation_replaceable"));
     public static final TagKey<PlacedFeature> ADDED_AETHER_FEATURES = TagKey.create(Registries.PLACED_FEATURE, UmbralSkies.prefix("twilight_to_aether_features"));
+    public static final TagKey<Item> CURIO_HEAD = TagKey.create(Registries.ITEM, new ResourceLocation("curios", "head"));
 
     public static class UmbralPlacedFeatureTags extends TagsProvider<PlacedFeature> {
         protected UmbralPlacedFeatureTags(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, @Nullable ExistingFileHelper existingFileHelper) {
@@ -33,7 +36,7 @@ public class UmbralTags {
 
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            tag(ADDED_AETHER_FEATURES).add(UmbralKeys.AETHER_DRUID_HUT, UmbralKeys.PLACEABLE_AETHER_WELL);
+            this.tag(ADDED_AETHER_FEATURES).add(UmbralKeys.AETHER_DRUID_HUT, UmbralKeys.PLACEABLE_AETHER_WELL);
         }
     }
 
@@ -45,11 +48,11 @@ public class UmbralTags {
         @SuppressWarnings("unchecked")
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            tag(AETHER_WORLDGEN).addTags(BlockTags.SCULK_REPLACEABLE_WORLD_GEN, Tags.Blocks.STONE, BlockTags.DIRT)
+            this.tag(AETHER_WORLDGEN).addTags(BlockTags.SCULK_REPLACEABLE_WORLD_GEN, Tags.Blocks.STONE, BlockTags.DIRT)
                     // Tag isn't available during datagen, using regular addTag crashes datagen
                     .addOptionalTag(BlockTagGenerator.WORLDGEN_REPLACEABLES.location());
 
-            tag(BlockTagGenerator.BANISTERS).add(UmbralBlocks.SKYROOT_BANISTER.get());
+            this.tag(BlockTagGenerator.BANISTERS).add(UmbralBlocks.SKYROOT_BANISTER.get());
         }
     }
 
@@ -60,7 +63,7 @@ public class UmbralTags {
 
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            tag(AetherTags.Items.AETHER_GLOVES).add(
+            this.tag(AetherTags.Items.AETHER_GLOVES).add(
                     UmbralItems.NAGA_GLOVES.get(),
                     UmbralItems.IRONWOOD_GLOVES.get(),
                     UmbralItems.FIERY_GLOVES.get(),
@@ -69,6 +72,12 @@ public class UmbralTags {
                     UmbralItems.PHANTOM_GLOVES.get(),
                     UmbralItems.ARCTIC_GLOVES.get(),
                     UmbralItems.YETI_GLOVES.get()
+            );
+
+            this.tag(CURIO_HEAD).add(
+                    UmbralItems.SLIDER_TROPHY.get(),
+                    UmbralItems.VALKYRIE_QUEEN_TROPHY.get(),
+                    UmbralItems.SUN_SPIRIT_TROPHY.get()
             );
         }
     }

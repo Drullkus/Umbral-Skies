@@ -26,6 +26,6 @@ public class UmbralItems {
     public static final RegistryObject<GlovesItem> YETI_GLOVES = ITEMS.register("yeti_gloves", () -> new UmbralGloves(0.75, "yeti", () -> SoundEvents.ARMOR_EQUIP_GENERIC, new Item.Properties().stacksTo(1).durability(TwilightArmorMaterial.ARMOR_YETI.getDurabilityForType(ArmorItem.Type.BOOTS)).rarity(Rarity.UNCOMMON)));
 
     public static final RegistryObject<AetherTrophyItem> SLIDER_TROPHY = ITEMS.register("slider_trophy", () -> new AetherTrophyItem(UmbralBlocks.SLIDER_TROPHY_BLOCK.get(), UmbralBlocks.SLIDER_WALL_TROPHY_BLOCK.get(), new Item.Properties()));
-    public static final RegistryObject<AetherTrophyItem> VALKYRIE_QUEEN_TROPHY_ENTITY = ITEMS.register("valkyrie_queen_trophy", () -> new AetherTrophyItem(UmbralBlocks.VALKYRIE_QUEEN_TROPHY_BLOCK.get(), UmbralBlocks.VALKYRIE_WALL_QUEEN_TROPHY_BLOCK.get(), new Item.Properties()));
-    public static final RegistryObject<AetherTrophyItem> SUN_SPIRIT_TROPHY_ENTITY = ITEMS.register("sun_spirit_trophy", () -> new AetherTrophyItem(UmbralBlocks.SUN_SPIRIT_TROPHY_BLOCK.get(), UmbralBlocks.SUN_SPIRIT_WALL_TROPHY_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<AetherTrophyItem> VALKYRIE_QUEEN_TROPHY = ITEMS.register("valkyrie_queen_trophy", () -> new AetherTrophyItem(UmbralBlocks.VALKYRIE_QUEEN_TROPHY_BLOCK.get(), UmbralBlocks.VALKYRIE_WALL_QUEEN_TROPHY_BLOCK.get(), new Item.Properties()));
+    public static final RegistryObject<AetherTrophyItem> SUN_SPIRIT_TROPHY = ITEMS.register("sun_spirit_trophy", () -> new AetherTrophyItem(UmbralBlocks.SUN_SPIRIT_TROPHY_BLOCK.get(), UmbralBlocks.SUN_SPIRIT_WALL_TROPHY_BLOCK.get(), new Item.Properties()));
 }
