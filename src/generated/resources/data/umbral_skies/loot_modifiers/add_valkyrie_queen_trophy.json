@@ -6,7 +6,6 @@
       "loot_table_id": "aether:chests/dungeon/silver/silver_dungeon_reward"
     }
   ],
-  "delete_item_count": 0,
   "stacks": [
     {
       "Count": 1,

@@ -49,7 +49,7 @@ public class ValkyrieQueenTrophyRenderer implements BlockEntityRenderer<AetherTr
 
     @Override
     public void render(AetherTrophyEntity trophy, float partial, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int overlay) {
-        this.render(poseStack, bufferSource, packedLight, overlay);
+        this.render(trophy, poseStack, bufferSource, packedLight, overlay);
     }
 
     @Override
