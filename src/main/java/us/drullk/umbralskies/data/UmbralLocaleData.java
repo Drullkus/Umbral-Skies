@@ -3,7 +3,9 @@ package us.drullk.umbralskies.data;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.data.LanguageProvider;
+import us.drullk.umbralskies.UmbralTab;
 import us.drullk.umbralskies.block.UmbralBlocks;
+import us.drullk.umbralskies.item.PhantomGloves;
 import us.drullk.umbralskies.item.UmbralItems;
 import us.drullk.umbralskies.UmbralSkies;
 
@@ -27,11 +29,16 @@ public class UmbralLocaleData extends LanguageProvider {
         this.addItem(UmbralItems.ARCTIC_GLOVES, "Arctic Mittens");
         this.addItem(UmbralItems.YETI_GLOVES, "Yeti Gloves");
 
+        // FIXME switch to using TF's lang key once 1704 is released
+        this.add(PhantomGloves.TOOLTIP_TEXT, "Never drops on death");
+
         this.addItem(UmbralItems.SLIDER_TROPHY, "Slider Trophy");
         this.addItem(UmbralItems.VALKYRIE_QUEEN_TROPHY, "Valkyrie Queen Trophy");
         this.addItem(UmbralItems.SUN_SPIRIT_TROPHY, "Sun Spirit Trophy");
 
         this.makeAetherLore(UmbralBlocks.SKYROOT_BANISTER, "A banister like those found within the Twilight Forest, made of Skyroot wood.");
+
+        this.add(UmbralTab.TAB_LOCALE, "Umbral Skies");
 
         // Severely underestimated how much writing these require plus the rest of TF content - Would've just generated the rest if GPT 3.5 were more competent
         //makeAetherLore(TFBlocks.NAGA_TROPHY, "The trophy of the Naga's head, marking the adventurer's victory over the fearsome serpentine adversary that guarded the Naga Courtyard, serves as a powerful symbol of their strength and dexterity.");

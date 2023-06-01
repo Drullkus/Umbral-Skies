@@ -22,7 +22,10 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public class PhantomGloves extends UmbralGloves {
-    private static final MutableComponent TOOLTIP = Component.translatable("item.twilightforest.phantom_armor.tooltip").setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY));
+    @Deprecated
+    public static final String TOOLTIP_TEXT = "item.umbral_skies.phantom_gloves.desc";
+    @Deprecated // FIXME switch to using TF's lang key once 1704 is released
+    private static final MutableComponent TOOLTIP = Component.translatable(TOOLTIP_TEXT).setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY));
 
     public PhantomGloves(double punchDamage, String glovesName, Supplier<? extends SoundEvent> glovesSound, Properties properties) {
         super(punchDamage, glovesName, glovesSound, properties);

@@ -29,7 +29,7 @@ Find Twilight Forest features in The Aether!
 [[dependencies.umbral_skies]]
     modId="twilightforest"
     mandatory=true
-    versionRange="[4.2.1614,)"
+    versionRange="[4.2.1696,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.umbral_skies]]
