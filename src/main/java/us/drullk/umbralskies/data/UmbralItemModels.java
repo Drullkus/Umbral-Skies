@@ -10,8 +10,8 @@ import us.drullk.umbralskies.item.UmbralItems;
 import us.drullk.umbralskies.UmbralKeys;
 import us.drullk.umbralskies.UmbralSkies;
 
-public class ItemModels extends ItemModelProvider {
-    public ItemModels(PackOutput output, ExistingFileHelper existingFileHelper) {
+public class UmbralItemModels extends ItemModelProvider {
+    public UmbralItemModels(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, UmbralSkies.MODID, existingFileHelper);
     }
 

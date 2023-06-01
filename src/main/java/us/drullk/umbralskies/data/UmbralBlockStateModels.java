@@ -14,8 +14,8 @@ import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.UmbralKeys;
 import us.drullk.umbralskies.UmbralSkies;
 
-public class BlockStateModels extends BlockStateProvider {
-    public BlockStateModels(PackOutput output, ExistingFileHelper exFileHelper) {
+public class UmbralBlockStateModels extends BlockStateProvider {
+    public UmbralBlockStateModels(PackOutput output, ExistingFileHelper exFileHelper) {
         super(output, UmbralSkies.MODID, exFileHelper);
     }
 

@@ -1,0 +1,6 @@
+// 1.19.4	2023-06-01T10:49:57.008762	Global Loot Modifiers : umbral_skies
+b9fa5eb822c5e1f433acf9d2a35045cab96b67e0 data/forge/loot_modifiers/global_loot_modifiers.json
+170b44a9d6a158aa56e046f3da2e6aa4537f9e45 data/umbral_skies/loot_modifiers/add_phantom_gloves.json
+6258bfbf8595439c7e721e669f9dcc0b49a5e264 data/umbral_skies/loot_modifiers/add_slider_trophy.json
+149827932b19d6f37949dc7a1de056f53031c470 data/umbral_skies/loot_modifiers/add_sun_spirit_trophy.json
+013681d8877249b26b5a6678b36eee24fbb0f6f8 data/umbral_skies/loot_modifiers/add_valkyrie_queen_trophy.json

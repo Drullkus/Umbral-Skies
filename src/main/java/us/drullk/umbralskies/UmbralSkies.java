@@ -9,9 +9,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import us.drullk.umbralskies.block.UmbralBlocks;
-import us.drullk.umbralskies.data.DataGeneration;
+import us.drullk.umbralskies.data.UmbralData;
 import us.drullk.umbralskies.item.PhantomGloves;
 import us.drullk.umbralskies.item.UmbralItems;
+import us.drullk.umbralskies.loottables.UmbralLootModifiers;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(UmbralSkies.MODID)
@@ -25,9 +26,10 @@ public class UmbralSkies {
         UmbralBlocks.BLOCKS.register(modEventBus);
         UmbralBlocks.BLOCK_ENTITIES.register(modEventBus);
         UmbralItems.ITEMS.register(modEventBus);
+        UmbralLootModifiers.LOOT_MODIFIERS.register(modEventBus);
 
         modEventBus.addListener(UmbralBlocks::registerItemsForBlocks);
-        modEventBus.addListener(DataGeneration::gatherData);
+        modEventBus.addListener(UmbralData::generateData);
 
         MinecraftForge.EVENT_BUS.register(this);
 

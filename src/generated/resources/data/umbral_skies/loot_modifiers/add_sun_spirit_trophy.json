@@ -1,0 +1,16 @@
+{
+  "type": "umbral_skies:item_addition",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "aether:chests/dungeon/gold/gold_dungeon_reward"
+    }
+  ],
+  "delete_item_count": 1,
+  "stacks": [
+    {
+      "Count": 1,
+      "id": "umbral_skies:sun_spirit_trophy"
+    }
+  ]
+}

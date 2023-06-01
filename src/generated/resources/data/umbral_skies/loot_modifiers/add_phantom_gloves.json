@@ -1,0 +1,19 @@
+{
+  "type": "umbral_skies:item_addition",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "twilightforest:chests/stronghold_boss"
+    }
+  ],
+  "delete_item_count": 0,
+  "stacks": [
+    {
+      "Count": 1,
+      "id": "umbral_skies:phantom_gloves",
+      "tag": {
+        "Damage": 0
+      }
+    }
+  ]
+}
