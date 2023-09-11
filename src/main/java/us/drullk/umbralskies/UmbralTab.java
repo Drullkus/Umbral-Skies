@@ -37,6 +37,9 @@ public class UmbralTab {
         output.accept(UmbralItems.ARCTIC_GLOVES.get());
         output.accept(UmbralItems.YETI_GLOVES.get());
 
+        output.accept(UmbralBlocks.HOLLOW_SKYROOT_LOG_HORIZONTAL.get());
+        output.accept(UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_CLIMBABLE.get());
+
         output.accept(UmbralItems.SLIDER_TROPHY.get());
         output.accept(UmbralItems.VALKYRIE_QUEEN_TROPHY.get());
         output.accept(UmbralItems.SUN_SPIRIT_TROPHY.get());
