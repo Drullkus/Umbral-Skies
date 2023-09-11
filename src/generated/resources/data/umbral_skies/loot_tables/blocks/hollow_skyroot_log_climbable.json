@@ -1,0 +1,75 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "enchantments": [
+                  {
+                    "enchantment": "minecraft:silk_touch",
+                    "levels": {
+                      "min": 1
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "block": "umbral_skies:hollow_skyroot_log_climbable",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "variant": "vine"
+              }
+            }
+          ],
+          "name": "minecraft:vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "umbral_skies:hollow_skyroot_log_climbable",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "variant": "ladder"
+              }
+            }
+          ],
+          "name": "minecraft:ladder"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "umbral_skies:hollow_skyroot_log_climbable",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "variant": "ladder_waterlogged"
+              }
+            }
+          ],
+          "name": "minecraft:ladder"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

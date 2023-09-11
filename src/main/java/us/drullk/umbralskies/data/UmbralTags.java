@@ -57,6 +57,10 @@ public class UmbralTags {
 
             this.tag(BlockTagGenerator.BANISTERS).add(UmbralBlocks.SKYROOT_BANISTER.get());
 
+            this.tag(BlockTagGenerator.HOLLOW_LOGS_HORIZONTAL).add(UmbralBlocks.HOLLOW_SKYROOT_LOG_HORIZONTAL.get(), UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_HORIZONTAL.get());
+            this.tag(BlockTagGenerator.HOLLOW_LOGS_VERTICAL).add(UmbralBlocks.HOLLOW_SKYROOT_LOG_VERTICAL.get(), UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_VERTICAL.get());
+            this.tag(BlockTagGenerator.HOLLOW_LOGS_CLIMBABLE).add(UmbralBlocks.HOLLOW_SKYROOT_LOG_CLIMBABLE.get(), UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_CLIMBABLE.get());
+
             this.tag(ORE_BEARING_GROUND_HOLYSTONE).add(AetherBlocks.HOLYSTONE.get());
 
             this.tag(ORES_IN_GROUND_HOLYSTONE).add(AetherBlocks.AMBROSIUM_ORE.get());

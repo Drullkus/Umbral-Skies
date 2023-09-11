@@ -1,0 +1,9 @@
+{
+  "parent": "twilightforest:block/horizontal_hollow_log",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "inner": "aether:block/natural/stripped_skyroot_log",
+    "side": "aether:block/natural/skyroot_log",
+    "top": "aether:block/natural/skyroot_log_top"
+  }
+}

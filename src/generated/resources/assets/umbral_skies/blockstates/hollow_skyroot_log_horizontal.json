@@ -1,0 +1,39 @@
+{
+  "variants": {
+    "axis=x,variant=empty": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal",
+      "y": 90
+    },
+    "axis=x,variant=moss": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal_moss",
+      "y": 90
+    },
+    "axis=x,variant=moss_and_grass": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal_moss_grass",
+      "y": 90
+    },
+    "axis=x,variant=snow": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal_snow",
+      "y": 90
+    },
+    "axis=x,variant=waterlogged": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal",
+      "y": 90
+    },
+    "axis=z,variant=empty": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal"
+    },
+    "axis=z,variant=moss": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal_moss"
+    },
+    "axis=z,variant=moss_and_grass": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal_moss_grass"
+    },
+    "axis=z,variant=snow": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal_snow"
+    },
+    "axis=z,variant=waterlogged": {
+      "model": "umbral_skies:block/hollow_skyroot_log_horizontal"
+    }
+  }
+}

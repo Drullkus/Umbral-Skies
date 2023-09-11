@@ -31,6 +31,7 @@ public class UmbralData {
         generator.addProvider(isServer, new DatapackBuiltinEntriesProvider(output, provider, UmbralDataPack.DATA_BUILDER, Collections.singleton(UmbralSkies.MODID)));
         generator.addProvider(isServer, new UmbralTags.UmbralPlacedFeatureTags(output, provider.thenApply(p -> UmbralDataPack.DATA_BUILDER.buildPatch(RegistryAccess.fromRegistryOfRegistries(BuiltInRegistries.REGISTRY), p)), existingFileHelper));
         generator.addProvider(isServer, new UmbralRecipes(output));
+        generator.addProvider(isServer, new UmbralLootModifiers(output));
         generator.addProvider(isServer, new UmbralLoot(output));
     }
 }

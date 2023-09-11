@@ -20,6 +20,14 @@ public class UmbralLocaleData extends LanguageProvider {
     protected void addTranslations() {
         this.addBlock(UmbralBlocks.SKYROOT_BANISTER, "Skyroot Banister");
 
+        this.addBlock(UmbralBlocks.HOLLOW_SKYROOT_LOG_HORIZONTAL, "Hollow Skyroot Log");
+        this.addBlock(UmbralBlocks.HOLLOW_SKYROOT_LOG_VERTICAL, "Hollow Skyroot Log");
+        this.addBlock(UmbralBlocks.HOLLOW_SKYROOT_LOG_CLIMBABLE, "Hollow Skyroot Log");
+
+        this.addBlock(UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_HORIZONTAL, "Hollow Golden Oak Log");
+        this.addBlock(UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_VERTICAL, "Hollow Golden Oak Log");
+        this.addBlock(UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_CLIMBABLE, "Hollow Golden Oak Log");
+
         this.addItem(UmbralItems.NAGA_GLOVES, "Naga Scale Gloves");
         this.addItem(UmbralItems.IRONWOOD_GLOVES, "Ironwood Gloves");
         this.addItem(UmbralItems.FIERY_GLOVES, "Fiery Gloves");

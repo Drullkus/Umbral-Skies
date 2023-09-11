@@ -16,6 +16,8 @@ import us.drullk.umbralskies.block.UmbralBlocks;
 public class UmbralItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, UmbralSkies.MODID);
 
+    //public static final RegistryObject<HollowLogItem> HOLLOW_SKYROOT_LOG = ITEMS.register("hollow_skyroot_log", () -> new HollowLogItem(UmbralBlocks.HOLLOW_SKYROOT_LOG_HORIZONTAL, UmbralBlocks.HOLLOW_SKYROOT_LOG_VERTICAL, UmbralBlocks.HOLLOW_SKYROOT_LOG_CLIMBABLE, new Item.Properties()));
+
     public static final RegistryObject<GlovesItem> NAGA_GLOVES = ITEMS.register("naga_gloves", () -> new UmbralGloves(0.25, "naga", () -> SoundEvents.ARMOR_EQUIP_GENERIC, new Item.Properties().stacksTo(1).durability(TwilightArmorMaterial.ARMOR_NAGA.getDurabilityForType(ArmorItem.Type.BOOTS)).rarity(Rarity.UNCOMMON)));
     public static final RegistryObject<GlovesItem> IRONWOOD_GLOVES = ITEMS.register("ironwood_gloves", () -> new UmbralGloves(0.5, "ironwood", () -> SoundEvents.ARMOR_EQUIP_GENERIC, new Item.Properties().stacksTo(1).durability(TwilightArmorMaterial.ARMOR_IRONWOOD.getDurabilityForType(ArmorItem.Type.BOOTS))));
     public static final RegistryObject<GlovesItem> FIERY_GLOVES = ITEMS.register("fiery_gloves", () -> new UmbralGloves(1, "fiery", () -> SoundEvents.ARMOR_EQUIP_GENERIC, new Item.Properties().stacksTo(1).durability(TwilightArmorMaterial.ARMOR_FIERY.getDurabilityForType(ArmorItem.Type.BOOTS)).fireResistant().rarity(Rarity.UNCOMMON)));

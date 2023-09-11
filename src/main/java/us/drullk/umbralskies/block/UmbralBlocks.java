@@ -1,25 +1,42 @@
 package us.drullk.umbralskies.block;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 import twilightforest.block.BanisterBlock;
+import twilightforest.block.HollowLogClimbable;
+import twilightforest.block.HollowLogHorizontal;
+import twilightforest.block.HollowLogVertical;
+import twilightforest.item.HollowLogItem;
 import us.drullk.umbralskies.UmbralSkies;
 import us.drullk.umbralskies.block.entity.AetherTrophyEntity;
+
+import java.util.function.Supplier;
 
 public class UmbralBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, UmbralSkies.MODID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, UmbralSkies.MODID);
 
     public static final RegistryObject<BanisterBlock> SKYROOT_BANISTER = BLOCKS.register("skyroot_banister", () -> new BanisterBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+
+    public static final RegistryObject<HollowLogHorizontal> HOLLOW_SKYROOT_LOG_HORIZONTAL = BLOCKS.register("hollow_skyroot_log_horizontal", () -> new HollowLogHorizontal(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2).sound(SoundType.WOOD)));
+    public static final RegistryObject<HollowLogVertical> HOLLOW_SKYROOT_LOG_VERTICAL = BLOCKS.register("hollow_skyroot_log_vertical", () -> new HollowLogVertical(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2).sound(SoundType.WOOD), UmbralBlocks.HOLLOW_SKYROOT_LOG_CLIMBABLE));
+    public static final RegistryObject<HollowLogClimbable> HOLLOW_SKYROOT_LOG_CLIMBABLE = BLOCKS.register("hollow_skyroot_log_climbable", () -> new HollowLogClimbable(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2).sound(SoundType.WOOD), UmbralBlocks.HOLLOW_SKYROOT_LOG_VERTICAL));
+
+    public static final RegistryObject<HollowLogHorizontal> HOLLOW_GOLDEN_OAK_LOG_HORIZONTAL = BLOCKS.register("hollow_golden_oak_log_horizontal", () -> new HollowLogHorizontal(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2).sound(SoundType.WOOD)));
+    public static final RegistryObject<HollowLogVertical> HOLLOW_GOLDEN_OAK_LOG_VERTICAL = BLOCKS.register("hollow_golden_oak_log_vertical", () -> new HollowLogVertical(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2).sound(SoundType.WOOD), UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_CLIMBABLE));
+    public static final RegistryObject<HollowLogClimbable> HOLLOW_GOLDEN_OAK_LOG_CLIMBABLE = BLOCKS.register("hollow_golden_oak_log_climbable", () -> new HollowLogClimbable(Block.Properties.of(Material.WOOD, MaterialColor.WOOD).strength(2).sound(SoundType.WOOD), UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_VERTICAL));
 
     public static final RegistryObject<FloorAetherTrophyBlock> SLIDER_TROPHY_BLOCK = BLOCKS.register("slider_trophy", () -> new FloorAetherTrophyBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak(), UmbralBlocks.SLIDER_TROPHY_ENTITY));
     public static final RegistryObject<FloorAetherTrophyBlock> VALKYRIE_QUEEN_TROPHY_BLOCK = BLOCKS.register("valkyrie_queen_trophy", () -> new FloorAetherTrophyBlock(BlockBehaviour.Properties.of(Material.DECORATION).instabreak(), UmbralBlocks.VALKYRIE_TROPHY_ENTITY));
@@ -36,9 +53,15 @@ public class UmbralBlocks {
         if (!ForgeRegistries.ITEMS.equals(event.getForgeRegistry())) return;
 
         registerItemFromBlock(event, SKYROOT_BANISTER);
+        registerItem(event, UmbralSkies.prefix("hollow_skyroot_log"), () -> new HollowLogItem(UmbralBlocks.HOLLOW_SKYROOT_LOG_HORIZONTAL, UmbralBlocks.HOLLOW_SKYROOT_LOG_VERTICAL, UmbralBlocks.HOLLOW_SKYROOT_LOG_CLIMBABLE, new Item.Properties()));
+        registerItem(event, UmbralSkies.prefix("hollow_golden_oak_log"), () -> new HollowLogItem(UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_HORIZONTAL, UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_VERTICAL, UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_CLIMBABLE, new Item.Properties()));
     }
 
     private static void registerItemFromBlock(RegisterEvent event, RegistryObject<? extends Block> block) {
         event.register(ForgeRegistries.Keys.ITEMS, helper -> helper.register(block.getId(), new BlockItem(block.get(), new Item.Properties())));
+    }
+
+    private static void registerItem(RegisterEvent event, ResourceLocation name, Supplier<Item> item) {
+        event.register(ForgeRegistries.Keys.ITEMS, name, item);
     }
 }

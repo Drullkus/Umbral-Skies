@@ -1,10 +1,15 @@
 package us.drullk.umbralskies.data;
 
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import twilightforest.TwilightForestMod;
+import twilightforest.block.HollowLogHorizontal;
 import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 import us.drullk.umbralskies.UmbralKeys;
@@ -29,5 +34,13 @@ public class UmbralItemModels extends ItemModelProvider {
         this.basicItem(UmbralItems.YETI_GLOVES.get());
 
         this.basicItem(UmbralSkies.prefix("trophy_bronze"));
+
+        this.hollowLog(UmbralBlocks.HOLLOW_SKYROOT_LOG_HORIZONTAL);
+        this.hollowLog(UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_HORIZONTAL);
+    }
+
+    private void hollowLog(RegistryObject<HollowLogHorizontal> hollowLog) {
+        ResourceLocation id = hollowLog.getId();
+        this.getBuilder(ForgeRegistries.ITEMS.getKey(hollowLog.get().asItem()).getPath()).parent(new ModelFile.ExistingModelFile(new ResourceLocation(id.getNamespace(), "block/" + id.getPath()), this.existingFileHelper));
     }
 }

@@ -46,6 +46,9 @@ public class UmbralRecipes extends RecipeProvider {
                 .requires(Ingredient.of(ItemTagGenerator.FIERY_VIAL), 2)
                 .unlockedBy("has_item", has(ItemTagGenerator.FIERY_VIAL))
                 .save(consumer, UmbralSkies.prefix("fiery_iron_gloves"));
+
+        stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, UmbralBlocks.HOLLOW_SKYROOT_LOG_HORIZONTAL.get(), AetherBlocks.SKYROOT_LOG.get());
+        stonecutterResultFromBase(consumer, RecipeCategory.BUILDING_BLOCKS, UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_HORIZONTAL.get(), AetherBlocks.GOLDEN_OAK_LOG.get());
     }
 
     private static void recipeGloves(Consumer<FinishedRecipe> consumer, Item gloves, Item material) {

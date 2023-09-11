@@ -1,0 +1,8 @@
+{
+  "parent": "twilightforest:block/vertical_hollow_log",
+  "textures": {
+    "inner": "aether:block/natural/stripped_skyroot_log",
+    "side": "aether:block/natural/golden_oak_log",
+    "top": "aether:block/natural/skyroot_log_top"
+  }
+}

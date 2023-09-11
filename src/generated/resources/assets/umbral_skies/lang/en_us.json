@@ -1,4 +1,10 @@
 {
+  "block.umbral_skies.hollow_golden_oak_log_climbable": "Hollow Golden Oak Log",
+  "block.umbral_skies.hollow_golden_oak_log_horizontal": "Hollow Golden Oak Log",
+  "block.umbral_skies.hollow_golden_oak_log_vertical": "Hollow Golden Oak Log",
+  "block.umbral_skies.hollow_skyroot_log_climbable": "Hollow Skyroot Log",
+  "block.umbral_skies.hollow_skyroot_log_horizontal": "Hollow Skyroot Log",
+  "block.umbral_skies.hollow_skyroot_log_vertical": "Hollow Skyroot Log",
   "block.umbral_skies.skyroot_banister": "Skyroot Banister",
   "block.umbral_skies.slider_trophy": "Slider Trophy",
   "block.umbral_skies.sun_spirit_trophy": "Sun Spirit Trophy",

@@ -1,4 +1,8 @@
-// 1.19.4	2023-05-27T23:08:54.19602	Recipes
+// 1.19.4	2023-09-11T01:49:49.863795	Recipes
+c487d38d26bb16da95c267fe0b3b5cdb758a021d data/minecraft/advancements/recipes/building_blocks/hollow_golden_oak_log_from_golden_oak_log_stonecutting.json
+65e502a6c4eda02920fafdc30d78a484424ca0ef data/minecraft/advancements/recipes/building_blocks/hollow_skyroot_log_from_skyroot_log_stonecutting.json
+2dd20decd953c4d761dcde43149a45a65863e15d data/minecraft/recipes/hollow_golden_oak_log_from_golden_oak_log_stonecutting.json
+d78c6104b95fac96ce4fb6fb03d53d4d94fa7b96 data/minecraft/recipes/hollow_skyroot_log_from_skyroot_log_stonecutting.json
 26b855225eb97842f08b5ab3452bd488fec2d141 data/umbral_skies/advancements/recipes/combat/arctic_gloves.json
 72797b350ab81bb7509f97dbe6ff49de6818cf43 data/umbral_skies/advancements/recipes/combat/fiery_gloves.json
 a94db506bcfb13f3997b086fa27d7047c3890799 data/umbral_skies/advancements/recipes/combat/fiery_iron_gloves.json
