@@ -1,6 +1,7 @@
 package us.drullk.umbralskies.data;
 
 import com.aetherteam.aether.AetherTags;
+import com.aetherteam.aether.block.AetherBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -26,6 +27,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class UmbralTags {
     public static final TagKey<Block> AETHER_WORLDGEN = TagKey.create(Registries.BLOCK, UmbralSkies.prefix("generation_replaceable"));
+    public static final TagKey<Block> ORE_BEARING_GROUND_HOLYSTONE = TagKey.create(Registries.BLOCK, new ResourceLocation("forge", "ore_bearing_ground/holystone"));
+    public static final TagKey<Block> ORES_IN_GROUND_HOLYSTONE = TagKey.create(Registries.BLOCK, new ResourceLocation("forge", "ores_in_ground/holystone"));
     public static final TagKey<PlacedFeature> ADDED_AETHER_FEATURES = TagKey.create(Registries.PLACED_FEATURE, UmbralSkies.prefix("twilight_to_aether_features"));
     public static final TagKey<Item> CURIO_HEAD = TagKey.create(Registries.ITEM, new ResourceLocation("curios", "head"));
 
@@ -53,6 +56,12 @@ public class UmbralTags {
                     .addOptionalTag(BlockTagGenerator.WORLDGEN_REPLACEABLES.location());
 
             this.tag(BlockTagGenerator.BANISTERS).add(UmbralBlocks.SKYROOT_BANISTER.get());
+
+            this.tag(ORE_BEARING_GROUND_HOLYSTONE).add(AetherBlocks.HOLYSTONE.get());
+
+            this.tag(ORES_IN_GROUND_HOLYSTONE).add(AetherBlocks.AMBROSIUM_ORE.get());
+            this.tag(ORES_IN_GROUND_HOLYSTONE).add(AetherBlocks.ZANITE_ORE.get());
+            this.tag(ORES_IN_GROUND_HOLYSTONE).add(AetherBlocks.GRAVITITE_ORE.get());
         }
     }
 

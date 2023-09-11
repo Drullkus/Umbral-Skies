@@ -1,3 +1,5 @@
-// 1.19.4	2023-05-26T12:57:51.265533	Tags for minecraft:block mod id umbral_skies
+// 1.19.4	2023-09-10T23:08:29.669099	Tags for minecraft:block mod id umbral_skies
+336a5cf28e3a807615f25965e0a90c7bf33dd3ac data/forge/tags/blocks/ore_bearing_ground/holystone.json
+47071da7c265ffd70c41ff2b88a06b237cd784f9 data/forge/tags/blocks/ores_in_ground/holystone.json
 8d6ca1fc96a14d1293b48785344fb828603ec80c data/twilightforest/tags/blocks/banisters.json
 ff7e42babc7e5eb180ad524381f6b287a34baa97 data/umbral_skies/tags/blocks/generation_replaceable.json
