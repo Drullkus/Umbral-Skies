@@ -1,29 +1,23 @@
 package us.drullk.umbralskies;
 
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.CreativeModeTabEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 
-@Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class UmbralTab {
     public static final String TAB_LOCALE = "itemGroup.umbral_skies";
 
-    @SubscribeEvent
-    public static void registerTab(CreativeModeTabEvent.Register event) {
-        event.registerCreativeModeTab(UmbralSkies.prefix("items"), UmbralTab::configureTab);
-    }
+    public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, UmbralSkies.MODID);
 
-    private static void configureTab(CreativeModeTab.Builder builder) {
-        builder
-                .title(Component.translatable(TAB_LOCALE))
-                .icon(() -> new ItemStack(UmbralItems.FIERY_GLOVES.get()))
-                .displayItems(UmbralTab::generateItems);
-    }
+    private static final RegistryObject<CreativeModeTab> TAB = TABS.register("items", () -> CreativeModeTab.builder()
+            .title(Component.translatable(TAB_LOCALE))
+            .icon(() -> new ItemStack(UmbralItems.FIERY_GLOVES.get()))
+            .displayItems(UmbralTab::generateItems).build());
 
     private static void generateItems(CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) {
         output.accept(UmbralBlocks.SKYROOT_BANISTER.get());

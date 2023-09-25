@@ -5,6 +5,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -27,8 +28,8 @@ public class PhantomGloves extends UmbralGloves {
     @Deprecated // FIXME switch to using TF's lang key once 1704 is released
     private static final MutableComponent TOOLTIP = Component.translatable(TOOLTIP_TEXT).setStyle(Style.EMPTY.withColor(ChatFormatting.GRAY));
 
-    public PhantomGloves(double punchDamage, String glovesName, Supplier<? extends SoundEvent> glovesSound, Properties properties) {
-        super(punchDamage, glovesName, glovesSound, properties);
+    public PhantomGloves(ArmorMaterial armorMaterial, double punchDamage, String glovesName, Supplier<? extends SoundEvent> glovesSound, Properties properties) {
+        super(armorMaterial, punchDamage, glovesName, glovesSound, properties);
     }
 
     @Override

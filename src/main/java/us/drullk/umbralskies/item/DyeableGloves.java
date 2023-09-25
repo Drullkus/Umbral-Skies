@@ -2,6 +2,7 @@ package us.drullk.umbralskies.item;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.DyeableLeatherItem;
 import net.minecraft.world.item.ItemStack;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
@@ -9,8 +10,8 @@ import org.apache.commons.lang3.tuple.ImmutableTriple;
 import java.util.function.Supplier;
 
 public class DyeableGloves extends UmbralGloves implements DyeableLeatherItem {
-    public DyeableGloves(double punchDamage, String glovesName, Supplier<? extends SoundEvent> glovesSound, Properties properties) {
-        super(punchDamage, glovesName, glovesSound, properties);
+    public DyeableGloves(ArmorMaterial armorMaterial, double punchDamage, String glovesName, Supplier<? extends SoundEvent> glovesSound, Properties properties) {
+        super(armorMaterial, punchDamage, glovesName, glovesSound, properties);
     }
 
     @Override

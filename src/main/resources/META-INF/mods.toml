@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[45,)"
+loaderVersion="[47,)"
 license="All rights reserved"
 [[mods]]
 modId="umbral_skies"
@@ -17,24 +17,24 @@ Find Twilight Forest features in The Aether!
 [[dependencies.umbral_skies]]
     modId="forge"
     mandatory=true
-    versionRange="[45,)"
+    versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.umbral_skies]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.19.4,1.20)"
+    versionRange="[1.20.1,1.21)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.umbral_skies]]
     modId="twilightforest"
     mandatory=true
-    versionRange="[4.2.1696,)"
+    versionRange="[4.3.0,)"
     ordering="NONE"
     side="BOTH"
 [[dependencies.umbral_skies]]
     modId="aether"
     mandatory=true
-    versionRange="[0.4.0,)"
+    versionRange="[1.20.1-1.0.0-beta.1.2,)"
     ordering="NONE"
     side="BOTH"

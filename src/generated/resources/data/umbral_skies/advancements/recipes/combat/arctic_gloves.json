@@ -30,5 +30,6 @@
     "recipes": [
       "umbral_skies:arctic_gloves"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

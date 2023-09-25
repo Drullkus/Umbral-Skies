@@ -27,6 +27,7 @@ public class UmbralSkies {
         UmbralBlocks.BLOCK_ENTITIES.register(modEventBus);
         UmbralItems.ITEMS.register(modEventBus);
         UmbralLootModifiers.LOOT_MODIFIERS.register(modEventBus);
+        UmbralTab.TABS.register(modEventBus);
 
         modEventBus.addListener(UmbralBlocks::registerItemsForBlocks);
         modEventBus.addListener(UmbralData::generateData);

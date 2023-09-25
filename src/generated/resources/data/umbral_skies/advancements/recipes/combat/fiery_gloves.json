@@ -30,5 +30,6 @@
     "recipes": [
       "umbral_skies:fiery_gloves"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }

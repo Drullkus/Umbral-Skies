@@ -28,5 +28,6 @@
     "recipes": [
       "umbral_skies:fiery_iron_gloves"
     ]
-  }
+  },
+  "sends_telemetry_event": false
 }
