@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "umbral_skies:item/arctic_gloves",
+    "layer1": "umbral_skies:item/arctic_gloves_overlay",
+    "layer2": "aether:trims/items/gloves_trim_lapis"
+  }
+}

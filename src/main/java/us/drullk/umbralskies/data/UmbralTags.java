@@ -9,6 +9,7 @@ import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -76,7 +77,7 @@ public class UmbralTags {
 
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            this.tag(AetherTags.Items.AETHER_GLOVES).add(
+            this.tag(AetherTags.Items.ACCESSORIES_GLOVES).add(
                     UmbralItems.NAGA_GLOVES.get(),
                     UmbralItems.IRONWOOD_GLOVES.get(),
                     UmbralItems.FIERY_GLOVES.get(),
@@ -91,6 +92,17 @@ public class UmbralTags {
                     UmbralItems.SLIDER_TROPHY.get(),
                     UmbralItems.VALKYRIE_QUEEN_TROPHY.get(),
                     UmbralItems.SUN_SPIRIT_TROPHY.get()
+            );
+
+            this.tag(ItemTags.TRIMMABLE_ARMOR).add(
+                    UmbralItems.NAGA_GLOVES.get(),
+                    UmbralItems.IRONWOOD_GLOVES.get(),
+                    UmbralItems.FIERY_GLOVES.get(),
+                    UmbralItems.STEELEAF_GLOVES.get(),
+                    UmbralItems.KNIGHTMETAL_GLOVES.get(),
+                    UmbralItems.PHANTOM_GLOVES.get(),
+                    UmbralItems.ARCTIC_GLOVES.get(),
+                    UmbralItems.YETI_GLOVES.get()
             );
         }
     }

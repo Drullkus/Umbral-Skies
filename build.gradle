@@ -115,6 +115,7 @@ repositories {
 
     maven { url = "https://maven.theillusivec4.top/" }
     maven githubPackage.invoke("The-Aether-Team/The-Aether")
+    maven githubPackage.invoke("The-Aether-Team/Nitrogen")
 }
 
 dependencies {
@@ -128,6 +129,7 @@ dependencies {
     // Aether
     compileOnly "com.aetherteam.aether:aether:${aether_version}"
     runtimeOnly fg.deobf("com.aetherteam.aether:aether:${aether_version}")
+    compileOnly fg.deobf("com.aetherteam.nitrogen:nitrogen_internals:${project.nitrogen_version}")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
