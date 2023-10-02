@@ -33,6 +33,13 @@ public class UmbralBlockStateModels extends BlockStateProvider {
 
         var models = this.models();
 
+        this.simpleBlock(UmbralBlocks.SLIDER_TROPHY_BLOCK.get(), models.getExistingFile(new ResourceLocation("block/skull")));
+        this.simpleBlock(UmbralBlocks.VALKYRIE_QUEEN_TROPHY_BLOCK.get(), models.getExistingFile(new ResourceLocation("block/skull")));
+        this.simpleBlock(UmbralBlocks.SUN_SPIRIT_TROPHY_BLOCK.get(), models.getExistingFile(new ResourceLocation("block/skull")));
+        this.simpleBlock(UmbralBlocks.SLIDER_WALL_TROPHY_BLOCK.get(), models.getExistingFile(new ResourceLocation("block/skull")));
+        this.simpleBlock(UmbralBlocks.VALKYRIE_WALL_QUEEN_TROPHY_BLOCK.get(), models.getExistingFile(new ResourceLocation("block/skull")));
+        this.simpleBlock(UmbralBlocks.SUN_SPIRIT_WALL_TROPHY_BLOCK.get(), models.getExistingFile(new ResourceLocation("block/skull")));
+
         ModelFile.ExistingModelFile horizontalHollowLog = models.getExistingFile(TwilightForestMod.prefix("horizontal_hollow_log"));
         ModelFile.ExistingModelFile hollowLogMossGrass = models.getExistingFile(TwilightForestMod.prefix("hollow_log_moss_grass"));
         ModelFile.ExistingModelFile hollowLogMoss = models.getExistingFile(TwilightForestMod.prefix("hollow_log_moss"));
