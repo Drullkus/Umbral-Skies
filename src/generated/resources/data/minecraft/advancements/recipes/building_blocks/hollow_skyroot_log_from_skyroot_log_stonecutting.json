@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_skyroot_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_skyroot_log"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:hollow_skyroot_log_from_skyroot_log_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

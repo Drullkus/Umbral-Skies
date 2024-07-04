@@ -2,7 +2,7 @@ package us.drullk.umbralskies.data;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 import us.drullk.umbralskies.UmbralTab;
 import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.PhantomGloves;

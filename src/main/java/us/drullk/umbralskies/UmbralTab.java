@@ -1,11 +1,11 @@
 package us.drullk.umbralskies;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredRegister;
 import us.drullk.umbralskies.block.UmbralBlocks;
 import us.drullk.umbralskies.item.UmbralItems;
 
@@ -14,7 +14,7 @@ public class UmbralTab {
 
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, UmbralSkies.MODID);
 
-    private static final RegistryObject<CreativeModeTab> TAB = TABS.register("items", () -> CreativeModeTab.builder()
+    private static final Holder<CreativeModeTab> TAB = TABS.register("items", () -> CreativeModeTab.builder()
             .title(Component.translatable(TAB_LOCALE))
             .icon(() -> new ItemStack(UmbralItems.FIERY_GLOVES.get()))
             .displayItems(UmbralTab::generateItems).build());

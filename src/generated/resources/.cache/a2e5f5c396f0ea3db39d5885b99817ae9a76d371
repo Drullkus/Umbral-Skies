@@ -1,6 +1,6 @@
-// 1.20.1	2023-09-25T02:24:18.835891	Global Loot Modifiers : umbral_skies
-b9fa5eb822c5e1f433acf9d2a35045cab96b67e0 data/forge/loot_modifiers/global_loot_modifiers.json
-675b6fc3d1cad7c2b2cb581032eb07a93c8374e4 data/umbral_skies/loot_modifiers/add_phantom_gloves.json
-6849b218ce69ce7756acb1ade5dce2d718d6685b data/umbral_skies/loot_modifiers/add_slider_trophy.json
-4e99e91d33a92241ed427965a73cd1d521a9cc4e data/umbral_skies/loot_modifiers/add_sun_spirit_trophy.json
-473dadd37fdacdef0ccf4276f3b8b9a31f796219 data/umbral_skies/loot_modifiers/add_valkyrie_queen_trophy.json
+// 1.20.4	2024-07-04T16:01:48.781764	Global Loot Modifiers : umbral_skies
+b9fa5eb822c5e1f433acf9d2a35045cab96b67e0 data/neoforge/loot_modifiers/global_loot_modifiers.json
+9b82a58110ecff0ed6ee1c32b663ed54a228617f data/umbral_skies/loot_modifiers/add_phantom_gloves.json
+3b736cb1aa1559890b34d057a8de8c88299d935c data/umbral_skies/loot_modifiers/add_slider_trophy.json
+91aeab37e7abcc39a77d0a37543be18fe2590d12 data/umbral_skies/loot_modifiers/add_sun_spirit_trophy.json
+d8686e4b0aad70db78b8c97c7080dedcf2173dc3 data/umbral_skies/loot_modifiers/add_valkyrie_queen_trophy.json

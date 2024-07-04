@@ -1,40 +1,42 @@
 modLoader="javafml"
-loaderVersion="[47,)"
-license="All rights reserved"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 [[mods]]
-modId="umbral_skies"
-version="${file.jarVersion}"
-displayName="Umbral Skies" #mandatory
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}" #mandatory
 # updateJSONURL="https://change.me.example.invalid/updates.json"
 # displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
 logoFile="pack.png"
 # credits=""
-authors="Drullkus"
+authors="${mod_authors}"
 # displayTest="MATCH_VERSION" # MATCH_VERSION is the default if nothing is specified (#optional)
-description='''
-Find Twilight Forest features in The Aether!
-'''
-[[dependencies.umbral_skies]]
-    modId="forge"
-    mandatory=true
-    versionRange="[47,)"
+description="${mod_description}"
+
+[[dependencies.${mod_id}]]
+    modId="neoforge"
+    type="required"
+    versionRange="${neo_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.umbral_skies]]
+
+[[dependencies.${mod_id}]]
     modId="minecraft"
-    mandatory=true
-    versionRange="[1.20.1,1.21)"
+    type="required"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.umbral_skies]]
+
+[[dependencies.${mod_id}]]
     modId="twilightforest"
-    mandatory=true
-    versionRange="[4.3.0,)"
+    type="required"
+    versionRange="[4.4.2276,)"
     ordering="NONE"
     side="BOTH"
-[[dependencies.umbral_skies]]
+
+[[dependencies.${mod_id}]]
     modId="aether"
-    mandatory=true
-    versionRange="[1.20.1-1.0.0-beta.1.2,)"
+    type="required"
+    versionRange="[1.20.4-1.4.1-neoforge,)"
     ordering="NONE"
     side="BOTH"

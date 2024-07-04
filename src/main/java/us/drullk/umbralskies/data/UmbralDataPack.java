@@ -27,9 +27,10 @@ import net.minecraft.world.level.levelgen.placement.BlockPredicateFilter;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.placement.RarityFilter;
 import net.minecraft.world.level.levelgen.structure.templatesystem.*;
-import net.minecraftforge.common.world.BiomeModifier;
-import net.minecraftforge.common.world.ForgeBiomeModifiers;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.common.world.BiomeModifier;
+import net.neoforged.neoforge.common.world.BiomeModifiers;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import twilightforest.TFRegistries;
 import twilightforest.data.tags.CustomTagGenerator;
 import twilightforest.init.TFFeatures;
 import twilightforest.init.custom.WoodPalettes;
@@ -42,10 +43,10 @@ import java.util.List;
 
 public class UmbralDataPack {
     static final RegistrySetBuilder DATA_BUILDER = new RegistrySetBuilder()
-            .add(WoodPalettes.WOOD_PALETTE_TYPE_KEY, UmbralDataPack::generateWoodPalettes)
+            .add(TFRegistries.Keys.WOOD_PALETTES, UmbralDataPack::generateWoodPalettes)
             .add(Registries.CONFIGURED_FEATURE, UmbralDataPack::generateFeatureConfigurations)
             .add(Registries.PLACED_FEATURE, UmbralDataPack::generatePlacedFeatures)
-            .add(ForgeRegistries.Keys.BIOME_MODIFIERS, UmbralDataPack::generateBiomeModifiers);
+            .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, UmbralDataPack::generateBiomeModifiers);
 
     static void generateWoodPalettes(BootstapContext<WoodPalette> context) {
         context.register(UmbralKeys.SKYROOT_PALETTE, new WoodPalette(
@@ -61,7 +62,7 @@ public class UmbralDataPack {
     }
 
     static void generateFeatureConfigurations(BootstapContext<ConfiguredFeature<?, ?>> context) {
-        HolderGetter<WoodPalette> woodPaletteGetter = context.lookup(WoodPalettes.WOOD_PALETTE_TYPE_KEY);
+        HolderGetter<WoodPalette> woodPaletteGetter = context.lookup(TFRegistries.Keys.WOOD_PALETTES);
 
         WeightedRandomList<WeightedEntry.Wrapper<HolderSet<WoodPalette>>> paletteList = buildPaletteChoices(woodPaletteGetter);
 
@@ -195,7 +196,7 @@ public class UmbralDataPack {
         HolderSet<Biome> aetherBiomeTarget = context.lookup(Registries.BIOME).getOrThrow(AetherTags.Biomes.IS_AETHER);
         HolderSet<PlacedFeature> twilightFeatures = context.lookup(Registries.PLACED_FEATURE).getOrThrow(UmbralTags.ADDED_AETHER_FEATURES);
 
-        context.register(UmbralKeys.AETHER_MODIFIER, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(aetherBiomeTarget, twilightFeatures, GenerationStep.Decoration.SURFACE_STRUCTURES));
+        context.register(UmbralKeys.AETHER_MODIFIER, new BiomeModifiers.AddFeaturesBiomeModifier(aetherBiomeTarget, twilightFeatures, GenerationStep.Decoration.SURFACE_STRUCTURES));
     }
 
     public static WeightedRandomList<WeightedEntry.Wrapper<HolderSet<WoodPalette>>> buildPaletteChoices(HolderGetter<WoodPalette> paletteHolders) {

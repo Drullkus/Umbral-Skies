@@ -22,14 +22,13 @@
   },
   "requirements": [
     [
-      "has_golden_oak_log",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_golden_oak_log"
     ]
   ],
   "rewards": {
     "recipes": [
       "minecraft:hollow_golden_oak_log_from_golden_oak_log_stonecutting"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

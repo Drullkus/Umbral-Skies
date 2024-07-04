@@ -2,17 +2,19 @@ package us.drullk.umbralskies.data;
 
 import com.aetherteam.aether.Aether;
 import com.aetherteam.nitrogen.data.providers.NitrogenItemModelProvider;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.armortrim.TrimMaterial;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.client.model.generators.loaders.ItemLayerModelBuilder;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.loaders.ItemLayerModelBuilder;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import twilightforest.TwilightForestMod;
 import twilightforest.block.HollowLogHorizontal;
 import us.drullk.umbralskies.block.UmbralBlocks;
@@ -47,9 +49,9 @@ public class UmbralItemModels extends NitrogenItemModelProvider {
         this.hollowLog(UmbralBlocks.HOLLOW_GOLDEN_OAK_LOG_HORIZONTAL);
     }
 
-    private void hollowLog(RegistryObject<HollowLogHorizontal> hollowLog) {
+    private void hollowLog(DeferredHolder<Block, HollowLogHorizontal> hollowLog) {
         ResourceLocation id = hollowLog.getId();
-        this.getBuilder(ForgeRegistries.ITEMS.getKey(hollowLog.get().asItem()).getPath()).parent(new ModelFile.ExistingModelFile(new ResourceLocation(id.getNamespace(), "block/" + id.getPath()), this.existingFileHelper));
+        this.getBuilder(BuiltInRegistries.ITEM.getKey(hollowLog.get().asItem()).getPath()).parent(new ModelFile.ExistingModelFile(new ResourceLocation(id.getNamespace(), "block/" + id.getPath()), this.existingFileHelper));
     }
 
     public void glovesItem(Item item) {

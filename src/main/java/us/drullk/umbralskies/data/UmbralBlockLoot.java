@@ -4,6 +4,7 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
@@ -16,8 +17,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import twilightforest.block.HollowLogClimbable;
 import twilightforest.block.HollowLogHorizontal;
 import twilightforest.block.HollowLogVertical;
@@ -30,8 +30,10 @@ import us.drullk.umbralskies.block.WallAetherTrophyBlock;
 import us.drullk.umbralskies.item.AetherTrophyItem;
 import us.drullk.umbralskies.item.UmbralItems;
 
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Stream;
 
 public class UmbralBlockLoot extends BlockLootSubProvider {
     protected UmbralBlockLoot() {
@@ -50,13 +52,13 @@ public class UmbralBlockLoot extends BlockLootSubProvider {
         this.trophy(UmbralItems.SUN_SPIRIT_TROPHY, UmbralBlocks.SUN_SPIRIT_TROPHY_BLOCK, UmbralBlocks.SUN_SPIRIT_WALL_TROPHY_BLOCK);
     }
 
-    private void trophy(RegistryObject<AetherTrophyItem> itemTrophy, RegistryObject<FloorAetherTrophyBlock> floorTrophy, RegistryObject<WallAetherTrophyBlock> wallTrophy) {
+    private void trophy(DeferredHolder<Item, AetherTrophyItem> itemTrophy, DeferredHolder<Block, FloorAetherTrophyBlock> floorTrophy, DeferredHolder<Block, WallAetherTrophyBlock> wallTrophy) {
         var table = this.createSingleItemTable(itemTrophy.get());
         this.add(floorTrophy.get(), table);
         this.add(wallTrophy.get(), table);
     }
 
-    private void hollowLogs(RegistryObject<HollowLogHorizontal> horizontalLog, RegistryObject<HollowLogVertical> verticalLog, RegistryObject<HollowLogClimbable> climbable) {
+    private void hollowLogs(DeferredHolder<Block, HollowLogHorizontal> horizontalLog, DeferredHolder<Block, HollowLogVertical> verticalLog, DeferredHolder<Block, HollowLogClimbable> climbable) {
         this.add(horizontalLog.get(), this.horizontalHollowLog(horizontalLog.get()));
         this.add(verticalLog.get(), this.verticalHollowLog(verticalLog.get()));
         this.add(climbable.get(), this.climbableHollowLog(climbable.get()));
@@ -67,7 +69,7 @@ public class UmbralBlockLoot extends BlockLootSubProvider {
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .add(LootItem.lootTableItem(log.asItem()).when(HAS_SILK_TOUCH).otherwise(LootItem.lootTableItem(Items.STICK).apply(SetItemCountFunction.setCount(UniformGenerator.between(2.0F, 4.0F))).apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE)))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-                        .add(LootItem.lootTableItem(Blocks.GRASS).when(HAS_SILK_TOUCH).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(log).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HollowLogHorizontal.VARIANT, HollowLogVariants.Horizontal.MOSS_AND_GRASS)))))
+                        .add(LootItem.lootTableItem(Blocks.SHORT_GRASS).when(HAS_SILK_TOUCH).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(log).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HollowLogHorizontal.VARIANT, HollowLogVariants.Horizontal.MOSS_AND_GRASS)))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
                         .add(LootItem.lootTableItem(TFBlocks.MOSS_PATCH.get()).when(HAS_SILK_TOUCH).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(log).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HollowLogHorizontal.VARIANT, HollowLogVariants.Horizontal.MOSS_AND_GRASS)))))
                 .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
@@ -96,6 +98,7 @@ public class UmbralBlockLoot extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return ForgeRegistries.BLOCKS.getEntries().stream().filter(entry -> UmbralSkies.MODID.equals(entry.getKey().location().getNamespace())).map(Map.Entry::getValue).toList();
+        Stream<Block> iterator = BuiltInRegistries.BLOCK.stream();
+        return iterator.filter(entry -> UmbralSkies.MODID.equals(entry.builtInRegistryHolder().key().location().getNamespace())).toList();
     }
 }

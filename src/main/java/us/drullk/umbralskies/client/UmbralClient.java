@@ -7,12 +7,12 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ModelEvent;
-import net.minecraftforge.client.event.RenderLivingEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.client.event.RenderLivingEvent;
 import top.theillusivec4.curios.api.CuriosApi;
 import top.theillusivec4.curios.api.SlotResult;
 import top.theillusivec4.curios.api.client.CuriosRendererRegistry;
@@ -61,7 +61,7 @@ public class UmbralClient {
     @Mod.EventBusSubscriber(value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.FORGE)
     public static class Events {
         @SubscribeEvent
-        public static void renderLiving(RenderLivingEvent<?, ?> event) {
+        public static void renderLiving(RenderLivingEvent.Pre<?, ?> event) {
             ItemStack stack = event.getEntity().getItemBySlot(EquipmentSlot.HEAD);
 
             if (!(stackIsTrophy(stack) || isWearingTrophyCurio(event))) return;
@@ -79,6 +79,7 @@ public class UmbralClient {
         }
 
         private static boolean isWearingTrophyCurio(RenderLivingEvent<?, ?> event) {
+            @SuppressWarnings({"UnstableApiUsage", "removal"})
             Optional<SlotResult> slot = CuriosApi.getCuriosHelper().findFirstCurio(event.getEntity(), Events::stackIsTrophy);
             return slot.isPresent() && slot.get().slotContext() != null && slot.get().slotContext().visible();
         }

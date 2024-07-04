@@ -15,10 +15,10 @@ import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import twilightforest.TFConfig;
+import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import twilightforest.TwilightForestMod;
 import twilightforest.client.TFClientEvents;
+import twilightforest.config.TFConfig;
 import us.drullk.umbralskies.UmbralSkies;
 import us.drullk.umbralskies.item.UmbralItems;
 
@@ -80,7 +80,7 @@ public class UmbralWithoutLevelRenderer extends BlockEntityWithoutLevelRenderer 
 
             poseStack.translate(0.5f, 0.5f, 0);
             poseStack.mulPose(Axis.XP.rotationDegrees(30));
-            poseStack.mulPose(Axis.YN.rotationDegrees(TFConfig.CLIENT_CONFIG.rotateTrophyHeadsGui.get() ? TFClientEvents.rotationTicker : -45));
+            poseStack.mulPose(Axis.YN.rotationDegrees(TFConfig.rotateTrophyHeadsGui && !Minecraft.getInstance().isPaused() ? TFClientEvents.rotationTicker : -45));
             poseStack.translate(-0.5f, -0.25f, -0.5f);
         }
 
