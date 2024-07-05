@@ -52,9 +52,7 @@ public class UmbralTags {
         @SuppressWarnings("unchecked")
         @Override
         protected void addTags(HolderLookup.Provider provider) {
-            this.tag(AETHER_WORLDGEN).addTags(BlockTags.SCULK_REPLACEABLE_WORLD_GEN, Tags.Blocks.STONE, BlockTags.DIRT)
-                    // Tag isn't available during datagen, using regular addTag crashes datagen
-                    .addOptionalTag(BlockTagGenerator.WORLDGEN_REPLACEABLES.location());
+            this.tag(AETHER_WORLDGEN).addTags(BlockTags.SCULK_REPLACEABLE_WORLD_GEN, Tags.Blocks.STONE, BlockTags.DIRT, BlockTagGenerator.WORLDGEN_REPLACEABLES);
 
             this.tag(BlockTagGenerator.BANISTERS).add(UmbralBlocks.SKYROOT_BANISTER.get());
 
